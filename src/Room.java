@@ -4,17 +4,13 @@ public class Room {
     Room south = null;
     Room north = null;
     String description;
-    String name = null;
-    Room currentRoom = null;
+    String name;
 
 
-    public Room(String name, String desciption, Room north, Room east, Room south, Room west){
+    public Room(String name, String desciption){
         this.description = desciption;
         this.name= name;
-        this.north = north;
-        this.east = east;
-        this.west = west;
-        this.south = south;
+
 
     }
 

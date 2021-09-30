@@ -68,19 +68,33 @@ public class Adventure {
                 }
 
             }
+            if (currentRoom == room3) {
+                if (tekst.equalsIgnoreCase("south") || tekst.equalsIgnoreCase("s") || tekst.equalsIgnoreCase("go south")) {
+                    currentRoom = room3.getEast();
+                    System.out.println(currentRoom.getDescription());
+                    continue;
+                } else if (tekst.equalsIgnoreCase("west") || tekst.equalsIgnoreCase("w") || tekst.equalsIgnoreCase("go west")) {
+                    currentRoom = room3.getWest();
+                    System.out.println(currentRoom.getDescription());
+                    continue;
+                } else {
+                    System.out.println("you cant walk this way");
+                }
+
+            }
 
         }
     }
     public void init(){
-        room1 = new Room("Room1", "room1 description",null,null,null,null);
-        room2 = new Room("Room2", "room2 description",null,null,null,null);
-        room3 = new Room("Room3", "room3 description",null,null,null,null);
-        room4 = new Room("Room4", "room4 description",null,null,null,null);
-        room5 = new Room("Room5", "room5 description",null,null,null,null);
-        room6 = new Room("Room6", "room6 description",null,null,null,null);
-        room7 = new Room("Room7", "room7 description",null,null,null,null);
-        room8 = new Room("Room8", "room8 description",null,null,null,null);
-        room9 = new Room("Room9", "room9 description",null,null,null,null);
+        room1 = new Room("Room1", "room1 description");
+        room2 = new Room("Room2", "room2 description");
+        room3 = new Room("Room3", "room3 description");
+        room4 = new Room("Room4", "room4 description");
+        room5 = new Room("Room5", "room5 description");
+        room6 = new Room("Room6", "room6 description");
+        room7 = new Room("Room7", "room7 description");
+        room8 = new Room("Room8", "room8 description");
+        room9 = new Room("Room9", "room9 description");
         room1.setEast(room2);
         room1.setSouth(room4);
         room2.setWest(room1);
@@ -104,5 +118,7 @@ public class Adventure {
         Adventure adventure = new Adventure();
         adventure.run();
     }
+
+
 
 }
