@@ -10,10 +10,7 @@ public class Room {
     public Room(String name, String desciption){
         this.description = desciption;
         this.name= name;
-
-
     }
-
 
     public Room getEast() throws InterruptedException {
         System.out.println(name + " walking east...");

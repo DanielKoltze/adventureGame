@@ -1,18 +1,17 @@
 import java.util.Scanner;
 
 public class Adventure {
-    String tekst;
-    Room room1;
-    Room room2;
-    Room room3;
-    Room room4;
-    Room room5;
-    Room room6;
-    Room room7;
-    Room room8;
-    Room room9;
-    Room currentRoom;
-    Adventure(){
+    private Room room1;
+    private Room room2;
+    private Room room3;
+    private Room room4;
+    private Room room5;
+    private Room room6;
+    private Room room7;
+    private Room room8;
+    private Room room9;
+
+    public Adventure(){
         init();
     }
     public void run() throws InterruptedException {
@@ -20,14 +19,15 @@ public class Adventure {
         Scanner sc = new Scanner(System.in);
         System.out.println("Welcome to my adventure game");
         Thread.sleep(1000);
-        currentRoom = room1;
+        Room currentRoom = room1;
         System.out.println(currentRoom.getDescription());
 
         while (gameIsRunning) {
-            tekst = sc.next();
+            String tekst = sc.next();
             if (tekst.equals("look")) {
+                System.out.println("Looking around");
+                Thread.sleep(1000);
                 System.out.println(currentRoom.getDescription());
-
                 continue;
             }
             if (tekst.equals("exit")) {
@@ -39,7 +39,6 @@ public class Adventure {
                 //skriv hvilke kommandoer der er
                 continue;
             }
-
             if (currentRoom == room1) {
                 if (tekst.equalsIgnoreCase("east") || tekst.equalsIgnoreCase("e") || tekst.equalsIgnoreCase("go east")) {
                     currentRoom = room1.getEast();
@@ -49,8 +48,6 @@ public class Adventure {
                     currentRoom = room1.getSouth();
                     System.out.println(currentRoom.getDescription());
                     continue;
-                } else {
-                    System.out.println("you cant walk this way");
                 }
 
             }
@@ -63,22 +60,18 @@ public class Adventure {
                     currentRoom = room2.getWest();
                     System.out.println(currentRoom.getDescription());
                     continue;
-                } else {
-                    System.out.println("you cant walk this way");
                 }
 
             }
             if (currentRoom == room3) {
                 if (tekst.equalsIgnoreCase("south") || tekst.equalsIgnoreCase("s") || tekst.equalsIgnoreCase("go south")) {
-                    currentRoom = room3.getEast();
+                    currentRoom = room3.getSouth();
                     System.out.println(currentRoom.getDescription());
                     continue;
                 } else if (tekst.equalsIgnoreCase("west") || tekst.equalsIgnoreCase("w") || tekst.equalsIgnoreCase("go west")) {
                     currentRoom = room3.getWest();
                     System.out.println(currentRoom.getDescription());
                     continue;
-                } else {
-                    System.out.println("you cant walk this way");
                 }
             }
 
@@ -91,8 +84,6 @@ public class Adventure {
                     currentRoom = room4.getNorth();
                     System.out.println(currentRoom.getDescription());
                     continue;
-                } else {
-                    System.out.println("You can't walk this way");
                 }
             }
 
@@ -101,8 +92,6 @@ public class Adventure {
                         currentRoom = room5.getSouth();
                         System.out.println(currentRoom.getDescription());
                         continue;
-                    } else {
-                        System.out.println("You can't walk this way");
                     }
                 }
 
@@ -115,8 +104,6 @@ public class Adventure {
                         currentRoom = room6.getNorth();
                         System.out.println(currentRoom.getDescription());
                         continue;
-                    } else {
-                        System.out.println("You can't walk this way");
                     }
                 }
 
@@ -129,8 +116,6 @@ public class Adventure {
                         currentRoom = room7.getNorth();
                         System.out.println(currentRoom.getDescription());
                         continue;
-                    }else{
-                        System.out.println("You can't walk this way");
                     }
                 }
 
@@ -147,8 +132,6 @@ public class Adventure {
                         currentRoom = room8.getEast();
                         System.out.println(currentRoom.getDescription());
                         continue;
-                    } else {
-                        System.out.println("You can't walk this way");
                     }
                 }
 
@@ -161,18 +144,13 @@ public class Adventure {
                         currentRoom = room9.getNorth();
                         System.out.println(currentRoom.getDescription());
                         continue;
-                    } else {
-                        System.out.println("You can't walk this way");
                     }
                 }
-
-
-
-
-
+            System.out.println("You cannot walk this way");
         }
     }
     public void init(){
+        //Sætter vores run op og kører med metoden i konstruktør
         room1 = new Room("Room1", "room1 description");
         room2 = new Room("Room2", "room2 description");
         room3 = new Room("Room3", "room3 description");
@@ -197,15 +175,14 @@ public class Adventure {
         room7.setNorth(room4);
         room8.setWest(room7);
         room8.setEast(room9);
+        room8.setNorth(room5);
         room9.setNorth(room6);
         room9.setWest(room8);
     }
 
     public static void main(String[] args) throws InterruptedException {
+        //kører vores program
         Adventure adventure = new Adventure();
         adventure.run();
     }
-
-
-
 }
