@@ -156,11 +156,11 @@ public class Adventure {
         room2 = new Room("Staircase", "Be careful when walking up the staircase. It is almost inevitable to meet another student.");
         room3 = new Room("Classroom", "An empty room with many spots to hide");
         room4 = new Room("Codelab", "Many students vacay the room, and getting a spot alone may prove to be difficult");
-        room5 = new Room("Room5", "room5 description");
-        room6 = new Room("Room6", "room6 description");
-        room7 = new Room("Room7", "room7 description");
-        room8 = new Room("Room8", "room8 description");
-        room9 = new Room("Room9", "room9 description");
+        room5 = new Room("Examination room", "A dark and seamlessly empty room.");
+        room6 = new Room("Design building", "This building is full of wild designers. Be careful.");
+        room7 = new Room("Fredagsbar", "Over-crowded place with a way too long queue for buying beverages.");
+        room8 = new Room("Courtyard", "Full of smokers");
+        room9 = new Room("Elevator", "Empty right now. Press the 'close door' button fast!");
         room1.setEast(room2);
         room1.setSouth(room4);
         room2.setWest(room1);
