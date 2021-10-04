@@ -10,7 +10,7 @@ public class Adventure {
     private Room room7;
     private Room room8;
     private Room room9;
-    //hej
+
 
     public Adventure(){
         init();
@@ -152,10 +152,10 @@ public class Adventure {
     }
     public void init(){
         //Sætter vores run op og kører med metoden i konstruktør
-        room1 = new Room("Room1", "room1 description");
-        room2 = new Room("Room2", "room2 description");
-        room3 = new Room("Room3", "room3 description");
-        room4 = new Room("Room4", "room4 description");
+        room1 = new Room("Hallway", "Hallway of the school you're attending. Many foes lies lurking around");
+        room2 = new Room("Staircase", "Be careful when walking up the staircase. It is almost inevitable to meet another student.");
+        room3 = new Room("Classroom", "An empty room with many spots to hide");
+        room4 = new Room("Codelab", "Many students vacay the room, and getting a spot alone may prove to be difficult");
         room5 = new Room("Room5", "room5 description");
         room6 = new Room("Room6", "room6 description");
         room7 = new Room("Room7", "room7 description");

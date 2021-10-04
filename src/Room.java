@@ -7,8 +7,8 @@ public class Room {
     String name;
 
 
-    public Room(String name, String desciption){
-        this.description = desciption;
+    public Room(String name, String description){
+        this.description = description;
         this.name= name;
     }
 
