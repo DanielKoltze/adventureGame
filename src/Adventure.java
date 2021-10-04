@@ -18,7 +18,7 @@ public class Adventure {
     public void run() throws InterruptedException {
         boolean gameIsRunning = true;
         Scanner sc = new Scanner(System.in);
-        System.out.println("\nWelcome to our adventure game!\n\nIn this game you play the character of an introverted student whose greatest fear is the social contact with other people.\nYour mission is to graduate school with the least amount of social interaction as possible. Type 'help' if you need guidance.\n\nGood luck!\n\n");
+        System.out.println("\nWelcome to KEA!\n\nIn this game you play the character of an introverted student whose greatest fear is the social contact with other people.\nYour mission is to graduate school with the least amount of social interaction as possible. Type 'help' if you need guidance.\n\nGood luck!\n\n");
         Thread.sleep(1000);
         Room currentRoom = room1;
         System.out.println(currentRoom.getDescription());
