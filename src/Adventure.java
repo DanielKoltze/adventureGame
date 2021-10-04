@@ -39,47 +39,34 @@ public class Adventure {
                     "\nEast: go east/ east/ e" +
                     "\nWest: go west/ west/ w" +
                     "\n\nTry one of them out now!");
-            } else if (tekst.equalsIgnoreCase("east") || tekst.equalsIgnoreCase("e") || tekst.equalsIgnoreCase("go east")) {
+            } else if ((tekst.equalsIgnoreCase("east") || tekst.equalsIgnoreCase("e") || tekst.equalsIgnoreCase("go east")) && currentRoom.getEast() != null) {
                 // go east
-                if(currentRoom.getEast() != null) {
                     walking("east");
                     currentRoom = currentRoom.getEast();
                     System.out.println("Entering " + currentRoom.getName() + ". " + currentRoom.getDescription());
-                } else {
-                    System.out.println("You search this way, but unfortunately it goes directly into a wall. Try another way!");
-                }
-            } else if (tekst.equalsIgnoreCase("south") || tekst.equalsIgnoreCase("s") || tekst.equalsIgnoreCase("go south")) {
+                } else if ((tekst.equalsIgnoreCase("south") || tekst.equalsIgnoreCase("s") || tekst.equalsIgnoreCase("go south")) && currentRoom.getSouth() != null) {
                 // go south
-                if(currentRoom.getSouth() != null) {
                     walking("south");
                     currentRoom = currentRoom.getSouth();
                     System.out.println("Entering " + currentRoom.getName() + ". " + currentRoom.getDescription());
-                } else {
-                    System.out.println("You search this way, but unfortunately it goes directly into a wall. Try another way!");
-
                 }
-             } else if (tekst.equalsIgnoreCase("west") || tekst.equalsIgnoreCase("w") || tekst.equalsIgnoreCase("go west")) {
+              else if ((tekst.equalsIgnoreCase("west") || tekst.equalsIgnoreCase("w") || tekst.equalsIgnoreCase("go west"))&& currentRoom.getWest() != null) {
                 // go west
-                if(currentRoom.getWest() != null) {
                     walking("west");
                     currentRoom = currentRoom.getWest();
                     System.out.println("Entering " + currentRoom.getName() + ". " + currentRoom.getDescription());
-                } else {
-                    System.out.println("You search this way, but unfortunately it goes directly into a wall. Try another way!");
 
-                }
-             } else if (tekst.equalsIgnoreCase("north") || tekst.equalsIgnoreCase("n") || tekst.equalsIgnoreCase("go north")) {
+             } else if ((tekst.equalsIgnoreCase("north") || tekst.equalsIgnoreCase("n") || tekst.equalsIgnoreCase("go north"))&& currentRoom.getNorth() != null) {
                 // go north
-                if (currentRoom.getNorth() != null) {
                     walking("north");
                     currentRoom = currentRoom.getNorth();
                     System.out.println("Entering " + currentRoom.getName() + ". " + currentRoom.getDescription());
-                } else {
-                    System.out.println("You search this way, but unfortunately it goes directly into a wall. Try another way!");
-                }
+            }else{
+                System.out.println("You search this way, but unfortunately it goes directly into a wall. Try another way!");
+            }
             }
         }
-    }
+
     public void init(){
         //Sætter vores run op og kører med metoden i konstruktør
         room1 = new Room("Hallway", "It is morning and you have entered the hallway of the school you're attending. Many foes lies lurking around. Be careful!");
