@@ -48,11 +48,11 @@ public class Adventure {
             if (currentRoom == room1) {
                 if (tekst.equalsIgnoreCase("east") || tekst.equalsIgnoreCase("e") || tekst.equalsIgnoreCase("go east")) {
                     currentRoom = room1.getEast();
-                    System.out.println("Entering " + currentRoom.name + ". " + currentRoom.getDescription());
+                    System.out.println("Entering " + currentRoom.getName() + ". " + currentRoom.getDescription());
                     continue;
                 } else if (tekst.equalsIgnoreCase("south") || tekst.equalsIgnoreCase("s") || tekst.equalsIgnoreCase("go south")) {
                     currentRoom = room1.getSouth();
-                    System.out.println("Entering " + currentRoom.name + ". " + currentRoom.getDescription());
+                    System.out.println("Entering " + currentRoom.getName() + ". " + currentRoom.getDescription());
                     continue;
                 }
 
@@ -60,11 +60,11 @@ public class Adventure {
             if (currentRoom == room2) {
                 if (tekst.equalsIgnoreCase("east") || tekst.equalsIgnoreCase("e") || tekst.equalsIgnoreCase("go east")) {
                     currentRoom = room2.getEast();
-                    System.out.println("Entering " + currentRoom.name + ". " + currentRoom.getDescription());
+                    System.out.println("Entering " + currentRoom.getName() + ". " + currentRoom.getDescription());
                     continue;
                 } else if (tekst.equalsIgnoreCase("west") || tekst.equalsIgnoreCase("w") || tekst.equalsIgnoreCase("go west")) {
                     currentRoom = room2.getWest();
-                    System.out.println("Entering " + currentRoom.name + ". " + currentRoom.getDescription());
+                    System.out.println("Entering " + currentRoom.getName() + ". " + currentRoom.getDescription());
                     continue;
                 }
 
@@ -72,11 +72,11 @@ public class Adventure {
             if (currentRoom == room3) {
                 if (tekst.equalsIgnoreCase("south") || tekst.equalsIgnoreCase("s") || tekst.equalsIgnoreCase("go south")) {
                     currentRoom = room3.getSouth();
-                    System.out.println("Entering " + currentRoom.name + ". " + currentRoom.getDescription());
+                    System.out.println("Entering " + currentRoom.getName() + ". " + currentRoom.getDescription());
                     continue;
                 } else if (tekst.equalsIgnoreCase("west") || tekst.equalsIgnoreCase("w") || tekst.equalsIgnoreCase("go west")) {
                     currentRoom = room3.getWest();
-                    System.out.println("Entering " + currentRoom.name + ". " + currentRoom.getDescription());
+                    System.out.println("Entering " + currentRoom.getName() + ". " + currentRoom.getDescription());
                     continue;
                 }
             }
@@ -84,11 +84,11 @@ public class Adventure {
             if (currentRoom == room4) {
                 if (tekst.equalsIgnoreCase("south") || tekst.equalsIgnoreCase("s") || tekst.equalsIgnoreCase("go south")){
                     currentRoom = room4.getSouth();
-                    System.out.println("Entering " + currentRoom.name + ". " + currentRoom.getDescription());
+                    System.out.println("Entering " + currentRoom.getName() + ". " + currentRoom.getDescription());
                     continue;
                 } else if (tekst.equalsIgnoreCase("north") || tekst.equalsIgnoreCase("n") || tekst.equalsIgnoreCase("go north")){
                     currentRoom = room4.getNorth();
-                    System.out.println("Entering " + currentRoom.name + ". " + currentRoom.getDescription());
+                    System.out.println("Entering " + currentRoom.getName() + ". " + currentRoom.getDescription());
                     continue;
                 }
             }
@@ -96,7 +96,7 @@ public class Adventure {
                 if (currentRoom == room5) {
                     if (tekst.equalsIgnoreCase("south") || tekst.equalsIgnoreCase("s") || tekst.equalsIgnoreCase("go south")){
                         currentRoom = room5.getSouth();
-                        System.out.println("Entering " + currentRoom.name + ". " + currentRoom.getDescription());
+                        System.out.println("Entering " + currentRoom.getName() + ". " + currentRoom.getDescription());
                         continue;
                     }
                 }
@@ -104,11 +104,11 @@ public class Adventure {
                 if(currentRoom == room6){
                     if (tekst.equalsIgnoreCase("south") || tekst.equalsIgnoreCase("s") || tekst.equalsIgnoreCase("go south")){
                         currentRoom = room6.getSouth();
-                        System.out.println("Entering " + currentRoom.name + ". " + currentRoom.getDescription());
+                        System.out.println("Entering " + currentRoom.getName() + ". " + currentRoom.getDescription());
                         continue;
                     }else if (tekst.equalsIgnoreCase("north") || tekst.equalsIgnoreCase("n") || tekst.equalsIgnoreCase("go north")){
                         currentRoom = room6.getNorth();
-                        System.out.println("Entering " + currentRoom.name + ". " + currentRoom.getDescription());
+                        System.out.println("Entering " + currentRoom.getName() + ". " + currentRoom.getDescription());
                         continue;
                     }
                 }
@@ -116,11 +116,11 @@ public class Adventure {
                 if (currentRoom == room7){
                     if (tekst.equalsIgnoreCase("east") || tekst.equalsIgnoreCase("e") || tekst.equalsIgnoreCase("go east")){
                         currentRoom = room7.getEast();
-                        System.out.println("Entering " + currentRoom.name + ". " + currentRoom.getDescription());
+                        System.out.println("Entering " + currentRoom.getName() + ". " + currentRoom.getDescription());
                         continue;
                     }else if (tekst.equalsIgnoreCase("north") || tekst.equalsIgnoreCase("n") || tekst.equalsIgnoreCase("go north")){
                         currentRoom = room7.getNorth();
-                        System.out.println("Entering " + currentRoom.name + ". " + currentRoom.getDescription());
+                        System.out.println("Entering " + currentRoom.getName() + ". " + currentRoom.getDescription());
                         continue;
                     }
                 }
@@ -128,15 +128,15 @@ public class Adventure {
                 if (currentRoom == room8){
                     if (tekst.equalsIgnoreCase("north") || tekst.equalsIgnoreCase("n") || tekst.equalsIgnoreCase("go north")){
                         currentRoom = room8.getNorth();
-                        System.out.println("Entering " + currentRoom.name + ". " + currentRoom.getDescription());
+                        System.out.println("Entering " + currentRoom.getName() + ". " + currentRoom.getDescription());
                         continue;
                     } else if (tekst.equalsIgnoreCase("west") || tekst.equalsIgnoreCase("w") || tekst.equalsIgnoreCase("go west")){
                         currentRoom = room8.getWest();
-                        System.out.println("Entering " + currentRoom.name + ". " + currentRoom.getDescription());
+                        System.out.println("Entering " + currentRoom.getName() + ". " + currentRoom.getDescription());
                         continue;
                     } else if (tekst.equalsIgnoreCase("east") || tekst.equalsIgnoreCase("e") || tekst.equalsIgnoreCase("go east")){
                         currentRoom = room8.getEast();
-                        System.out.println("Entering " + currentRoom.name + ". " + currentRoom.getDescription());
+                        System.out.println("Entering " + currentRoom.getName() + ". " + currentRoom.getDescription());
                         continue;
                     }
                 }
@@ -144,11 +144,11 @@ public class Adventure {
                 if (currentRoom == room9){
                     if (tekst.equalsIgnoreCase("west") || tekst.equalsIgnoreCase("w") || tekst.equalsIgnoreCase("go west")){
                         currentRoom = room9.getWest();
-                        System.out.println("Entering " + currentRoom.name + ". " + currentRoom.getDescription());
+                        System.out.println("Entering " + currentRoom.getName() + ". " + currentRoom.getDescription());
                         continue;
                     } else if (tekst.equalsIgnoreCase("north") || tekst.equalsIgnoreCase("n") || tekst.equalsIgnoreCase("go north")){
                         currentRoom = room9.getNorth();
-                        System.out.println("Entering " + currentRoom.name + ". " + currentRoom.getDescription());
+                        System.out.println("Entering " + currentRoom.getName() + ". " + currentRoom.getDescription());
                         continue;
                     }
                 }
