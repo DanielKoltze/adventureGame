@@ -18,7 +18,7 @@ public class Adventure {
     public void run() throws InterruptedException {
         boolean gameIsRunning = true;
         Scanner sc = new Scanner(System.in);
-        System.out.println("Welcome to my adventure game");
+        System.out.println("\nWelcome to our adventure game!\n\nIn this game you play the character of an introverted student whose greatest fear is the social contact with other people.\nYour mission is to graduate school with the least amount of social interaction as possible. Type 'help' if you need guidance.\n\nGood luck!\n\n");
         Thread.sleep(1000);
         Room currentRoom = room1;
         System.out.println(currentRoom.getDescription());
@@ -37,7 +37,12 @@ public class Adventure {
                 continue;
             }
             if (tekst.equals("help")) {
-                //skriv hvilke kommandoer der er
+                System.out.println("\nTo move around type either one of these commands:\n " +
+                    "\nNorth: go north/ north/ n" +
+                    "\nSouth: go south/ south/ s" +
+                    "\nEast: go east/ east/ e" +
+                    "\nWest: go west/ west/ w" +
+                    "\n\nTry one of them out now!");
                 continue;
             }
             if (currentRoom == room1) {
@@ -152,7 +157,7 @@ public class Adventure {
     }
     public void init(){
         //Sætter vores run op og kører med metoden i konstruktør
-        room1 = new Room("Hallway", "Hallway of the school you're attending. Many foes lies lurking around");
+        room1 = new Room("Hallway", "It is morning and you have entered the hallway of the school you're attending. Many foes lies lurking around. Be careful!");
         room2 = new Room("Staircase", "Be careful when walking up the staircase. It is almost inevitable to meet another student.");
         room3 = new Room("Codelab", "Many students vacay the room, and getting a spot alone may prove to be difficult");
         room4 = new Room("Elevator", "Empty right now. Press the 'close door' button fast!");
