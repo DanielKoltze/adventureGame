@@ -13,25 +13,25 @@ public class Room {
     }
 
     public Room getEast() throws InterruptedException {
-        System.out.println(name + " walking east...");
+        System.out.println("Leaving " + name + " and walking east...");
         Thread.sleep(1000);
         return east;
     }
 
     public Room getNorth() throws InterruptedException {
-        System.out.println(name + " walking north...");
+        System.out.println("Leaving " + name + " and walking north...");
         Thread.sleep(1000);
         return  north;
     }
 
     public Room getWest() throws InterruptedException {
-        System.out.println(name + " walking west...");
+        System.out.println("Leaving " + name + " and walking west...");
         Thread.sleep(1000);
         return west;
     }
 
     public Room getSouth() throws InterruptedException {
-        System.out.println(name + " walking south...");
+        System.out.println("Leaving " + name + " and walking south...");
         Thread.sleep(1000);
         return south;
     }

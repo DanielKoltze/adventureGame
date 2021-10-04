@@ -154,13 +154,13 @@ public class Adventure {
         //Sætter vores run op og kører med metoden i konstruktør
         room1 = new Room("Hallway", "Hallway of the school you're attending. Many foes lies lurking around");
         room2 = new Room("Staircase", "Be careful when walking up the staircase. It is almost inevitable to meet another student.");
-        room3 = new Room("Classroom", "An empty room with many spots to hide");
-        room4 = new Room("Codelab", "Many students vacay the room, and getting a spot alone may prove to be difficult");
+        room3 = new Room("Codelab", "Many students vacay the room, and getting a spot alone may prove to be difficult");
+        room4 = new Room("Elevator", "Empty right now. Press the 'close door' button fast!");
         room5 = new Room("Examination room", "A dark and seamlessly empty room.");
         room6 = new Room("Design building", "This building is full of wild designers. Be careful.");
-        room7 = new Room("Fredagsbar", "Over-crowded place with a way too long queue for buying beverages.");
+        room7 = new Room("Classroom", "A few students hang around here. Be careful not to get eye contact.");
         room8 = new Room("Courtyard", "Full of smokers");
-        room9 = new Room("Elevator", "Empty right now. Press the 'close door' button fast!");
+        room9 = new Room("Fredagsbar", "Over-crowded place with a way too long queue for buying beverages.");
         room1.setEast(room2);
         room1.setSouth(room4);
         room2.setWest(room1);
