@@ -10,6 +10,7 @@ public class Adventure {
     private Room room7;
     private Room room8;
     private Room room9;
+    //hej
 
     public Adventure(){
         init();
