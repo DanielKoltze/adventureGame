@@ -51,7 +51,9 @@ public class Adventure {
             } else if (tekst.equalsIgnoreCase("south") || tekst.equalsIgnoreCase("s") || tekst.equalsIgnoreCase("go south")) {
                 // go south
                 if(currentRoom.getSouth() != null) {
+                    walking("south");
                     currentRoom = currentRoom.getSouth();
+                    System.out.println("Entering " + currentRoom.getName() + ". " + currentRoom.getDescription());
                 } else {
                     System.out.println("You search this way, but unfortunately it goes directly into a wall. Try another way!");
 
@@ -59,7 +61,9 @@ public class Adventure {
              } else if (tekst.equalsIgnoreCase("west") || tekst.equalsIgnoreCase("w") || tekst.equalsIgnoreCase("go west")) {
                 // go west
                 if(currentRoom.getWest() != null) {
+                    walking("west");
                     currentRoom = currentRoom.getWest();
+                    System.out.println("Entering " + currentRoom.getName() + ". " + currentRoom.getDescription());
                 } else {
                     System.out.println("You search this way, but unfortunately it goes directly into a wall. Try another way!");
 
@@ -67,7 +71,9 @@ public class Adventure {
              } else if (tekst.equalsIgnoreCase("north") || tekst.equalsIgnoreCase("n") || tekst.equalsIgnoreCase("go north")) {
                 // go north
                 if (currentRoom.getNorth() != null) {
+                    walking("north");
                     currentRoom = currentRoom.getNorth();
+                    System.out.println("Entering " + currentRoom.getName() + ". " + currentRoom.getDescription());
                 } else {
                     System.out.println("You search this way, but unfortunately it goes directly into a wall. Try another way!");
                 }
