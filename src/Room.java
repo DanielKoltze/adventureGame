@@ -12,19 +12,19 @@ public class Room {
         this.name= name;
     }
 
-    public Room getEast() throws InterruptedException {
+    public Room getEast(){
         return east;
     }
 
-    public Room getNorth() throws InterruptedException {
+    public Room getNorth(){
         return  north;
     }
 
-    public Room getWest() throws InterruptedException {
+    public Room getWest(){
         return west;
     }
 
-    public Room getSouth() throws InterruptedException {
+    public Room getSouth(){
         return south;
     }
 
