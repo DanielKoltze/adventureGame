@@ -50,12 +50,17 @@ public class Map {
         room2.addItemToRoom("Coffee");
         room2.addItemToRoom("Socks");
         room3.addItemToRoom("Computer");
+        room3.addItemToRoom("Sanitizer");
         room4.addItemToRoom("Keys");
         room5.addItemToRoom("Jacket");
         room6.addItemToRoom("Paper");
+        room6.addItemToRoom("STD's");
         room7.addItemToRoom("Book");
+        room7.addItemToRoom("Laptop");
         room8.addItemToRoom("Table");
+        room8.addItemToRoom("Keychain");
         room9.addItemToRoom("Chair");
+        room9.addItemToRoom("Beer");
 
     }
 
