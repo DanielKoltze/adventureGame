@@ -8,12 +8,12 @@ public class Adventure {
         boolean gameIsRunning = true;
         Scanner sc = new Scanner(System.in);
         System.out.println("\nWelcome to KEA!\n\nIn this game you play the character of an introverted student whose greatest fear is the social contact with other people.\nYour mission is to graduate school with the least amount of social interaction as possible. Type 'help' if you need guidance.\n\nGood luck!\n\n");
-        Thread.sleep(3000);
+        Thread.sleep(2000);
         player.setCurrentRoom(map.getRoom1());
         System.out.println(player.getCurrentRoomDescription());
 
         while (gameIsRunning) {
-            String tekst = sc.next();
+            String tekst = sc.nextLine().trim();
             if (tekst.equals("look")) {
                 System.out.println("Looking around");
                 Thread.sleep(1000);
