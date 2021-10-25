@@ -59,4 +59,11 @@ public class Room {
     public ArrayList<Item> getItems() {
         return items;
     }
+    public int getItemSize(){
+        return items.size();
+    }
+    public String getItemByIndex(int tal){
+        return items.get(tal).getName();
+    }
+
 }

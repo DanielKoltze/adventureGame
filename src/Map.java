@@ -44,16 +44,18 @@ public class Map {
         room8.setNorth(room5);
         room9.setNorth(room6);
         room9.setWest(room8);
-        room1.addItemToRoom("sdaads");
-        room1.addItemToRoom("sdfdsfsd");
-        room2.addItemToRoom(" dsdas");
-        room3.addItemToRoom("sdfa ");
-        room4.addItemToRoom("dsf");
-        room5.addItemToRoom("dsfs");
-        room6.addItemToRoom("fs");
-        room7.addItemToRoom("afdsf");
-        room8.addItemToRoom("sdf");
-        room9.addItemToRoom("dsf");
+        room1.addItemToRoom("Wallet");
+        room1.addItemToRoom("Studentcard");
+        room1.addItemToRoom("Hoodie");
+        room2.addItemToRoom("Coffee");
+        room2.addItemToRoom("Socks");
+        room3.addItemToRoom("Computer");
+        room4.addItemToRoom("Keys");
+        room5.addItemToRoom("Jacket");
+        room6.addItemToRoom("Paper");
+        room7.addItemToRoom("Book");
+        room8.addItemToRoom("Table");
+        room9.addItemToRoom("Chair");
 
     }
 

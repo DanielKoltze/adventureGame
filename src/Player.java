@@ -7,20 +7,24 @@ public class Player {
     public void setCurrentRoom(Room currentRoom) {
         this.currentRoom = currentRoom;
     }
-
-
-
+    public String getCurrentRoomItemList(int tal){
+        return currentRoom.getItemByIndex(tal);
+  }
+    public ArrayList getCurrentroomItems(){
+        return currentRoom.getItems();
+    }
     public void takeItem(Item item){
         items.add(item);
     }
     public Room getCurrentRoom() {
         return currentRoom;
     }
-
     public ArrayList<Item> getItems() {
         return items;
     }
-
+    public int getCurrentRoomItemSize(){
+        return currentRoom.getItemSize();
+    }
     public String getCurrentRoomDescription(){
         return currentRoom.getDescription();
     }
@@ -50,5 +54,8 @@ public class Player {
     }
     public Room getEastRoom(){
         return currentRoom.getEast();
+    }
+    public ArrayList<Item> getItemsInRoom(){
+        return currentRoom.getItems();
     }
 }

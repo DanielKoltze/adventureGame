@@ -1,4 +1,3 @@
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Adventure {
@@ -11,14 +10,14 @@ public class Adventure {
         Thread.sleep(2000);
         player.setCurrentRoom(map.getRoom1());
         System.out.println(player.getCurrentRoomDescription());
-
+        printItemsInCurrentRoom();
         while (gameIsRunning) {
             String tekst = sc.nextLine().trim();
             if (tekst.equals("look")) {
                 System.out.println("Looking around");
                 Thread.sleep(1000);
                 System.out.println(player.getCurrentRoomName());
-                printItems();
+                printItemsInCurrentRoom();
                 System.out.println();
             } else if (tekst.equals("exit")) {
                 System.out.println("You have exited");
@@ -35,23 +34,27 @@ public class Adventure {
                     walking("east");
                     player.goEast();
                     System.out.println("Entering " + player.getCurrentRoomName() + ". " + player.getCurrentRoomDescription());
+                    printItemsInCurrentRoom();
                 } else if ((tekst.equalsIgnoreCase("south") || tekst.equalsIgnoreCase("s") || tekst.equalsIgnoreCase("go south")) && player.getSouthRoom() != null) {
                 // go south
                     walking("south");
                     player.goSouth();
                     System.out.println("Entering " + player.getCurrentRoomName() + ". " + player.getCurrentRoomDescription());
+                    printItemsInCurrentRoom();
                 }
               else if ((tekst.equalsIgnoreCase("west") || tekst.equalsIgnoreCase("w") || tekst.equalsIgnoreCase("go west"))&& player.getWestRoom() != null) {
                 // go west
                     walking("west");
                     player.goWest();
                     System.out.println("Entering " + player.getCurrentRoomName() + ". " + player.getCurrentRoomDescription());
+                    printItemsInCurrentRoom();
 
              } else if ((tekst.equalsIgnoreCase("north") || tekst.equalsIgnoreCase("n") || tekst.equalsIgnoreCase("go north"))&& player.getNorthRoom() != null) {
                 // go north
                     walking("north");
                     player.goNorth();
                     System.out.println("Entering " + player.getCurrentRoomName() + ". " + player.getCurrentRoomDescription());
+                    printItemsInCurrentRoom();
             }else if(tekst.contains("take")){
                 tekst = tekst.substring(5);
                 takeItem(tekst);
@@ -63,7 +66,6 @@ public class Adventure {
                 System.out.println();
             }else if(tekst.contains("drop")){
                 tekst = tekst.substring(5);
-                takeItem(tekst);
                 dropItem(tekst);
             }
               else{
@@ -78,24 +80,32 @@ public class Adventure {
     }
 
     //kan gøres pænere
-    public void printItems(){
-        System.out.print("items in room: ");
-        for (int i = 0; i < player.getCurrentRoom().getItems().size(); i++) {
-            System.out.print(player.getCurrentRoom().getItems().get(i) + " ");
+    public void printItemsInCurrentRoom(){
+        System.out.print("Items in room: ");
+        for (int i = 0; i < player.getCurrentRoomItemSize(); i++) {
+            System.out.print(player.getCurrentRoomItemList(i));
+            if(i == player.getCurrentRoomItemSize()-2){
+                System.out.print(" and ");
+            }else if(i <= player.getCurrentRoomItemSize()-2){
+                System.out.print(", ");
+            }
         }
+        System.out.println();
     }
     public void takeItem(String tekst){
-        for (int i = 0; i < player.getCurrentRoom().getItems().size(); i++) {
-          if(player.getCurrentRoom().getItems().get(i).getName().equals(tekst)){
-              player.takeItem(player.getCurrentRoom().getItems().get(i));
-              player.getCurrentRoom().getItems().remove(i);
+        for (int i = 0; i < player.getCurrentRoomItemSize(); i++) {
+          if(player.getCurrentRoomItemList(i).equalsIgnoreCase(tekst)) {
+              System.out.println("You took a " + player.getCurrentroomItems().get(i) + " in " + player.getCurrentRoomName());
+              player.takeItem(player.getItemsInRoom().get(i));
+              player.getCurrentroomItems().remove(i);
           }
         }
     }
     public void dropItem(String tekst){
         for (int i = 0; i < player.getItems().size(); i++) {
-            if(player.getItems().get(i).getName().equals(tekst)){
-                player.getCurrentRoom().getItems().add(player.getItems().get(i));
+            if(player.getItems().get(i).getName().equalsIgnoreCase(tekst)) {
+                System.out.println("You placed a " + player.getItems().get(i) + " in " + player.getCurrentRoomName());
+                player.getCurrentroomItems().add(player.getItems().get(i));
                 player.getItems().remove(i);
             }
         }
