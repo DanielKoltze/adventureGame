@@ -60,8 +60,7 @@ public class Adventure {
                     player.goSouth();
                     System.out.println("Entering " + player.getCurrentRoomName() + ". "
                         + player.getCurrentRoomDescription());
-                }
-              else if ((tekst.equalsIgnoreCase("west")
+                } else if ((tekst.equalsIgnoreCase("west")
                 || tekst.equalsIgnoreCase("w")
                 || tekst.equalsIgnoreCase("go west"))
                 && player.getWestRoom() != null) {
@@ -70,38 +69,35 @@ public class Adventure {
                     player.goWest();
                     System.out.println("Entering " + player.getCurrentRoomName() + ". "
                         + player.getCurrentRoomDescription());
-
-             } else if ((tekst.equalsIgnoreCase("north")
-                || tekst.equalsIgnoreCase("n")
-                || tekst.equalsIgnoreCase("go north"))
-                && player.getNorthRoom() != null) {
-                // go north
-                    walking("north");
-                    player.goNorth();
-                    System.out.println("Entering " + player.getCurrentRoomName() + ". "
-                        + player.getCurrentRoomDescription());
-            }else if(tekst.contains("take")){
-                tekst = tekst.substring(5);
-                player.takeTheItem(tekst);
-                System.out.println("You have picked up " + player.getItems() + " from the ground.");
-            }else if(tekst.equals("inventory")){
-                System.out.print("Your inventory: ");
-                for (int i = 0; i < player.getItems().size(); i++) {
-                    System.out.print(player.getItems().get(i) + " ");
+                } else if ((tekst.equalsIgnoreCase("north")
+                  || tekst.equalsIgnoreCase("n")
+                  || tekst.equalsIgnoreCase("go north"))
+                  && player.getNorthRoom() != null) {
+                  // go north
+                      walking("north");
+                      player.goNorth();
+                      System.out.println("Entering " + player.getCurrentRoomName() + ". "
+                          + player.getCurrentRoomDescription());
+                } else if(tekst.contains("take")){
+                    tekst = tekst.substring(5);
+                    player.takeTheItem(tekst);
+                    System.out.println("You have picked up " + player.getItems() + " from the ground.");
+                } else if(tekst.equals("inventory")){
+                    System.out.print("Your inventory: ");
+                    for (int i = 0; i < player.getItems().size(); i++) {
+                        System.out.print(player.getItems().get(i) + " ");
+                    }
+                    System.out.println();
+                } else if(tekst.contains("drop")){
+                    tekst = tekst.substring(5);
+                    player.takeTheItem(tekst);
+                    player.dropItem(tekst);
+                    System.out.println("You dropped " +  player.getItems() + " on the ground");
+                } else{
+                    System.out.println("You search this way, but unfortunately it goes directly into a wall. Try another way!");
                 }
-                System.out.println();
-            }else if(tekst.contains("drop")){
-                tekst = tekst.substring(5);
-                player.takeTheItem(tekst);
-                player.dropItem(tekst);
-                System.out.println("You dropped " +  player.getItems() + " on the ground");
-            }
-              else{
-                System.out.println("You search this way, but unfortunately it goes directly into a wall. Try another way!");
-                }
-            }
         }
-
+    }
     public void walking(String direction) throws InterruptedException {
         System.out.println("Leaving " + player.getCurrentRoomName() + " and walking " + direction + "...");
         Thread.sleep(1000);
