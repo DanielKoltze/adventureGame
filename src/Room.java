@@ -55,4 +55,8 @@ public class Room {
         Item item = new Item(name);
         items.add(item);
     }
+
+    public ArrayList<Item> getItems() {
+        return items;
+    }
 }

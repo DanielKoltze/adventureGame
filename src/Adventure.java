@@ -17,7 +17,8 @@ public class Adventure {
             if (tekst.equals("look")) {
                 System.out.println("Looking around");
                 Thread.sleep(1000);
-                System.out.println(player.getCurrentRoom());
+                System.out.println(player.getCurrentRoomName());
+                printItems();
             } else if (tekst.equals("exit")) {
                 System.out.println("You have exited");
                 gameIsRunning = false;
@@ -50,6 +51,7 @@ public class Adventure {
                     walking("north");
                     player.goNorth();
                     System.out.println("Entering " + player.getCurrentRoomName() + ". " + player.getCurrentRoomDescription());
+                    printItems();
             }else{
                 System.out.println("You search this way, but unfortunately it goes directly into a wall. Try another way!");
             }
@@ -59,6 +61,14 @@ public class Adventure {
     public void walking(String direction) throws InterruptedException {
         System.out.println("Leaving " + player.getCurrentRoomName() + " and walking " + direction + "...");
         Thread.sleep(1000);
+    }
+
+    //kan gøres pænere
+    public void printItems(){
+        System.out.print("items in room: ");
+        for (int i = 0; i < player.getCurrentRoom().getItems().size(); i++) {
+            System.out.print(player.getCurrentRoom().getItems().get(i) + " ");
+        }
     }
 
 }
