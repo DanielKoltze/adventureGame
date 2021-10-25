@@ -77,7 +77,7 @@ public class Room {
     public Item findItem(String itemName) {
         Item item = null;
         for (int i = 0; i < items.size(); i++) {
-            if(items.get(i).getName().equals(itemName)){
+            if(items.get(i).getName().equalsIgnoreCase(itemName)){
                 item = items.get(i);
                 items.remove(item);
                 return item;

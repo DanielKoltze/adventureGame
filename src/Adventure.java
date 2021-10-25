@@ -6,7 +6,7 @@ public class Adventure {
     public void run() throws InterruptedException {
         boolean gameIsRunning = true;
         Scanner sc = new Scanner(System.in);
-        System.out.println("\nWelcome to KEA!\n\nIn this game you play the character of an introverted student whose greatest fear is the social contact with other people.\nYour mission is to graduate school with the least amount of social interaction as possible. Type 'help' if you need guidance.\n\nGood luck!\n\n");
+        System.out.println("\nWelcome to KEA!\n\nIn this game you play the character of an introverted student whose greatest fear is the social contact with other people.\nYour mission is to graduate school with the least amount of social interaction as possible. Type 'help' if you need guidance.\n\nGood luck!\n");
         Thread.sleep(2000);
         player.setCurrentRoom(map.getRoom1());
         System.out.println(player.getCurrentRoomDescription());
@@ -14,11 +14,10 @@ public class Adventure {
         while (gameIsRunning) {
             String tekst = sc.nextLine().trim();
             if (tekst.equals("look")) {
-                System.out.println("Looking around");
+                System.out.println("Looking around..");
                 Thread.sleep(1000);
                 System.out.println(player.getCurrentRoomName());
                 printItemsInCurrentRoom();
-                System.out.println();
             } else if (tekst.equals("exit")) {
                 System.out.println("You have exited");
                 gameIsRunning = false;
@@ -59,11 +58,21 @@ public class Adventure {
                 tekst = tekst.substring(5);
                 takeItem(tekst);
             }else if(tekst.equals("inventory")){
-                System.out.print("Your inventory: ");
-                for (int i = 0; i < player.getItems().size(); i++) {
-                    System.out.print(player.getItems().get(i) + " ");
-                }
-                System.out.println();
+                  if(player.getItems().size() == 0){
+                      System.out.println("You have nothing in your inventory");
+                  }else {
+                      System.out.print("Your inventory: ");
+                      for (int i = 0; i < player.getItems().size(); i++) {
+                          System.out.print(player.getItems().get(i));
+                          if (i == player.getItems().size() - 2) {
+                              System.out.print(" and ");
+                          } else if (i <= player.getItems().size() - 2) {
+                              System.out.print(", ");
+                          }
+                      }
+                      System.out.println();
+                  }
+
             }else if(tekst.contains("drop")){
                 tekst = tekst.substring(5);
                 dropItem(tekst);
@@ -80,35 +89,38 @@ public class Adventure {
     }
 
     //kan gøres pænere
-    public void printItemsInCurrentRoom(){
-        System.out.print("Items in room: ");
-        for (int i = 0; i < player.getCurrentRoomItemSize(); i++) {
-            System.out.print(player.getCurrentRoomItemList(i));
-            if(i == player.getCurrentRoomItemSize()-2){
-                System.out.print(" and ");
-            }else if(i <= player.getCurrentRoomItemSize()-2){
-                System.out.print(", ");
+    public void printItemsInCurrentRoom() {
+        if (player.getCurrentRoomItemSize() == 0) {
+            System.out.println("This room has no items");
+        } else {
+            System.out.print("Items in room: ");
+            for (int i = 0; i < player.getCurrentRoomItemSize(); i++) {
+                System.out.print(player.getCurrentRoomItemList(i));
+                if (i == player.getCurrentRoomItemSize() - 2) {
+                    System.out.print(" and ");
+                } else if (i <= player.getCurrentRoomItemSize() - 2) {
+                    System.out.print(", ");
+                }
             }
+            System.out.println();
         }
-        System.out.println();
     }
     public void takeItem(String tekst){
-        for (int i = 0; i < player.getCurrentRoomItemSize(); i++) {
-          if(player.getCurrentRoomItemList(i).equalsIgnoreCase(tekst)) {
-              System.out.println("You took a " + player.getCurrentroomItems().get(i) + " in " + player.getCurrentRoomName());
-              player.takeItem(player.getItemsInRoom().get(i));
-              player.getCurrentroomItems().remove(i);
-          }
+        boolean itemTaken = player.takeItem(tekst);
+        if (itemTaken){
+            System.out.println("You took a " + tekst);
+        } else{
+            System.out.println(tekst + " doesnt exist in this room");
         }
     }
     public void dropItem(String tekst){
-        for (int i = 0; i < player.getItems().size(); i++) {
-            if(player.getItems().get(i).getName().equalsIgnoreCase(tekst)) {
-                System.out.println("You placed a " + player.getItems().get(i) + " in " + player.getCurrentRoomName());
-                player.getCurrentroomItems().add(player.getItems().get(i));
-                player.getItems().remove(i);
-            }
+        boolean itemDropped = player.dropItem(tekst);
+        if (itemDropped){
+            System.out.println("You dropped a " + tekst);
+        } else{
+            System.out.println(tekst + " doesnt exist in this room");
         }
     }
+    }
 
-}
+

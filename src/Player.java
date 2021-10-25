@@ -13,9 +13,6 @@ public class Player {
     public ArrayList getCurrentroomItems(){
         return currentRoom.getItems();
     }
-    public void takeItem(Item item){
-        items.add(item);
-    }
     public Room getCurrentRoom() {
         return currentRoom;
     }
@@ -58,4 +55,41 @@ public class Player {
     public ArrayList<Item> getItemsInRoom(){
         return currentRoom.getItems();
     }
+
+
+    public boolean takeItem(String itemName){
+        Item item = currentRoom.findItem(itemName);
+        if(item != null) {
+            items.add(item);
+            currentRoom.removeItem(item);
+            return true;
+        }
+        return false;
+    }
+
+    public boolean dropItem(String itemName) {
+        // find item (in room) with itemName
+        Item item = findItem(itemName);
+
+        // if exists:
+        if(item != null) {
+            //  - remove from room
+            currentRoom.addItem(item);
+            //  - add to inventory
+            items.remove(item);
+            return true;
+        } else {
+            return false;
+        }
+    }
+    public Item findItem(String itemName) {
+        for (int i = 0; i < items.size(); i++) {
+            if(items.get(i).getName().equalsIgnoreCase(itemName)){
+                return items.get(i);
+            }
+        }
+        return null;
+    }
+
+
 }
