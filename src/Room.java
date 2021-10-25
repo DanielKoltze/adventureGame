@@ -66,4 +66,24 @@ public class Room {
         return items.get(tal).getName();
     }
 
+    public void addItem(Item item) {
+        items.add(item);
+    }
+
+    public void removeItem(Item item){
+        items.remove(item);
+    }
+
+    public Item findItem(String itemName) {
+        Item item = null;
+        for (int i = 0; i < items.size(); i++) {
+            if(items.get(i).getName().equals(itemName)){
+                item = items.get(i);
+                items.remove(item);
+                return item;
+            }
+        }
+        return item;
+    }
+
 }
