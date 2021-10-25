@@ -19,6 +19,7 @@ public class Adventure {
                 Thread.sleep(1000);
                 System.out.println(player.getCurrentRoomName());
                 printItems();
+                System.out.println();
             } else if (tekst.equals("exit")) {
                 System.out.println("You have exited");
                 gameIsRunning = false;
@@ -51,11 +52,21 @@ public class Adventure {
                     walking("north");
                     player.goNorth();
                     System.out.println("Entering " + player.getCurrentRoomName() + ". " + player.getCurrentRoomDescription());
-                    printItems();
             }else if(tekst.contains("take")){
                 tekst = tekst.substring(5);
                 takeItem(tekst);
-            }else{
+            }else if(tekst.equals("inventory")){
+                System.out.print("Your inventory: ");
+                for (int i = 0; i < player.getItems().size(); i++) {
+                    System.out.print(player.getItems().get(i) + " ");
+                }
+                System.out.println();
+            }else if(tekst.contains("drop")){
+                tekst = tekst.substring(5);
+                takeItem(tekst);
+                dropItem(tekst);
+            }
+              else{
                 System.out.println("You search this way, but unfortunately it goes directly into a wall. Try another way!");
             }
             }
@@ -79,6 +90,14 @@ public class Adventure {
               player.takeItem(player.getCurrentRoom().getItems().get(i));
               player.getCurrentRoom().getItems().remove(i);
           }
+        }
+    }
+    public void dropItem(String tekst){
+        for (int i = 0; i < player.getItems().size(); i++) {
+            if(player.getItems().get(i).getName().equals(tekst)){
+                player.getCurrentRoom().getItems().add(player.getItems().get(i));
+                player.getItems().remove(i);
+            }
         }
     }
 

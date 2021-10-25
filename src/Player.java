@@ -16,6 +16,11 @@ public class Player {
     public Room getCurrentRoom() {
         return currentRoom;
     }
+
+    public ArrayList<Item> getItems() {
+        return items;
+    }
+
     public String getCurrentRoomDescription(){
         return currentRoom.getDescription();
     }
