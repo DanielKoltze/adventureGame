@@ -17,7 +17,7 @@ public class Adventure {
             if (tekst.equals("look")) {
                 System.out.println("Looking around");
                 Thread.sleep(1000);
-                System.out.println(player.getCurrentRoomName());
+                System.out.println("You are currently in " + player.getCurrentRoomName());
                 printItems();
                 System.out.println();
             } else if (tekst.equals("exit")) {
@@ -79,7 +79,7 @@ public class Adventure {
 
     //kan gøres pænere
     public void printItems(){
-        System.out.print("items in room: ");
+        System.out.print("You take a quick look around and find: ");
         for (int i = 0; i < player.getCurrentRoom().getItems().size(); i++) {
             System.out.print(player.getCurrentRoom().getItems().get(i) + " ");
         }

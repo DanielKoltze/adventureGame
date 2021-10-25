@@ -1,10 +1,10 @@
-public class Item{
+public class Item {
 
-    String name;
+  String name;
 
-    Item(String name){
-        this.name = name;
-    }
+  Item(String name) {
+    this.name = name;
+  }
 
     @Override
     public String toString() {

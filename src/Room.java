@@ -7,7 +7,7 @@ public class Room {
     private Room north = null;
     private String description;
     private String name;
-    private ArrayList<Item> items = new ArrayList<>();
+    private ArrayList<Item> inventory = new ArrayList<>();
 
     public Room(String name, String description){
         this.description = description;
@@ -17,46 +17,37 @@ public class Room {
     public Room getEast(){
         return east;
     }
-
     public Room getNorth(){
         return  north;
     }
-
     public Room getWest(){
         return west;
     }
-
     public Room getSouth(){
         return south;
     }
-
     public String getDescription() {
         return description;
     }
-
     public void setEast(Room east) {
         this.east = east;
     }
-
     public void setNorth(Room north) {
         this.north = north;
     }
-
     public void setWest(Room west) {
         this.west = west;
     }
-
     public void setSouth(Room south) {
         this.south = south;
     }
-
     public String getName() {return name;}
     public void addItemToRoom(String name){
         Item item = new Item(name);
-        items.add(item);
+        inventory.add(item);
     }
 
     public ArrayList<Item> getItems() {
-        return items;
+        return inventory;
     }
 }
