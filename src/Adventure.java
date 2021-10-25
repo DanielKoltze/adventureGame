@@ -68,7 +68,7 @@ public class Adventure {
             }
               else{
                 System.out.println("You search this way, but unfortunately it goes directly into a wall. Try another way!");
-            }
+                }
             }
         }
 
