@@ -1,5 +1,8 @@
+import java.util.ArrayList;
+
 public class Player {
     private Room currentRoom;
+    private ArrayList<Item> items = new ArrayList<>();
 
     public void setCurrentRoom(Room currentRoom) {
         this.currentRoom = currentRoom;
@@ -7,7 +10,9 @@ public class Player {
 
 
 
-
+    public void takeItem(Item item){
+        items.add(item);
+    }
     public Room getCurrentRoom() {
         return currentRoom;
     }

@@ -52,6 +52,9 @@ public class Adventure {
                     player.goNorth();
                     System.out.println("Entering " + player.getCurrentRoomName() + ". " + player.getCurrentRoomDescription());
                     printItems();
+            }else if(tekst.contains("take")){
+                tekst = tekst.substring(5);
+                takeItem(tekst);
             }else{
                 System.out.println("You search this way, but unfortunately it goes directly into a wall. Try another way!");
             }
@@ -68,6 +71,14 @@ public class Adventure {
         System.out.print("items in room: ");
         for (int i = 0; i < player.getCurrentRoom().getItems().size(); i++) {
             System.out.print(player.getCurrentRoom().getItems().get(i) + " ");
+        }
+    }
+    public void takeItem(String tekst){
+        for (int i = 0; i < player.getCurrentRoom().getItems().size(); i++) {
+          if(player.getCurrentRoom().getItems().get(i).getName().equals(tekst)){
+              player.takeItem(player.getCurrentRoom().getItems().get(i));
+              player.getCurrentRoom().getItems().remove(i);
+          }
         }
     }
 
