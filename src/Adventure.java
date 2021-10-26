@@ -91,7 +91,11 @@ public class Adventure {
             } else if(tekst.contains("drop")){
                 tekst = tekst.substring(5);
                 dropItem(tekst);
-            } else {
+            } else if(tekst.equalsIgnoreCase("health")){
+                System.out.println("You currently have " + player.getHealth() + " health");
+
+            }
+            else {
                 System.out.println("You search this way, but unfortunately it goes directly into a wall. Try another way!");
                 }
             }
