@@ -107,9 +107,9 @@ public class Adventure {
     private void eatFood(String tekst) {
         boolean foodEaten = player.eat(tekst);
         if(foodEaten){
-            System.out.println("You have eaten " + tekst + " and your health is now " + player.getHealth());
+            System.out.println("You have consumed the " + tekst + " and your health is now " + player.getHealth());
         } else{
-            System.out.println("You cant eat this");
+            System.out.println("You cant consume this");
         }
     }
 
@@ -147,7 +147,7 @@ public class Adventure {
         if (itemDropped){
             System.out.println("You dropped " +  tekst + " on the ground");
         } else{
-            System.out.println(tekst + " doesnt exist in this room");
+            System.out.println(tekst + " doesnt exist in your inventory");
         }
     }
     public void dots() throws InterruptedException {
