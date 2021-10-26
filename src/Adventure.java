@@ -162,9 +162,10 @@ public class Adventure {
         }
     }
     public void dots(int tal) throws InterruptedException {
+        Thread.sleep(1000);
         for (int i = 0; i < tal; i++) {
-            Thread.sleep(1000);
             System.out.println("...");
+            Thread.sleep(1000);
         }
         System.out.println();
 
