@@ -70,7 +70,7 @@ public class Adventure {
                 player.goNorth();
                 System.out.println("Entering " + player.getCurrentRoomName() + ". " + player.getCurrentRoomDescription());
                 printItemsInCurrentRoom();
-            } else if(tekst.contains("take")){
+            } else if(tekst.contains("take ")){
                 tekst = tekst.substring(5);
                 takeItem(tekst);
             } else if(tekst.equals("inventory")){
@@ -88,15 +88,18 @@ public class Adventure {
                       }
                       System.out.println();
                   }
-            } else if(tekst.contains("drop")){
+            } else if(tekst.contains("drop ")){
                 tekst = tekst.substring(5);
                 dropItem(tekst);
             } else if(tekst.equalsIgnoreCase("health")){
                 System.out.println("You currently have " + player.getHealth() + " health");
 
-            }else if(tekst.contains("eat")){
+            }else if(tekst.contains("eat ")){
                 tekst = tekst.substring(4);
-                eatFood(tekst);
+                eat(tekst);
+            }else if(tekst.contains("drink ")){
+                tekst = tekst.substring(6);
+                drink(tekst);
             }
             else {
                 System.out.println("You search this way, but unfortunately it goes directly into a wall. Try another way!");
@@ -104,12 +107,20 @@ public class Adventure {
             }
         }
 
-    private void eatFood(String tekst) {
-        boolean foodEaten = player.eat(tekst);
-        if(foodEaten){
-            System.out.println("You have consumed the " + tekst + " and your health is now " + player.getHealth());
+    private void eat(String itemName) {
+        boolean cases = player.eat(itemName);
+        if(cases){
+            System.out.println("You have eaten the " + itemName + " and your health is now " + player.getHealth());
+        }else{
+            System.out.println("You cant eat " + itemName);
+        }
+    }
+    private void drink(String itemName) {
+        boolean cases = player.drink(itemName);
+        if(cases){
+            System.out.println("You have drunk the " + itemName + " and your health is now " + player.getHealth());
         } else{
-            System.out.println("You cant consume this");
+            System.out.println("You cant drink " + itemName);
         }
     }
 

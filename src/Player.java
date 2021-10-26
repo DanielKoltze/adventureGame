@@ -92,27 +92,30 @@ public class Player {
         this.health = health;
     }
 
-    public boolean eat(String tekst){
 
-        Food item = eatFood(tekst);
+    public boolean drink(String itemName) {
 
-        if(item != null) {
-            health = health + item.getConsumeHealth();
-            inventory.remove(item);
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    public Food eatFood(String tekst) {
-        Food food = null;
         for (int i = 0; i < inventory.size(); i++) {
-            if(inventory.get(i).getName().equalsIgnoreCase(tekst) && inventory.get(i) instanceof Food) {
-                food = (Food) inventory.get(i);
-                return food;
+            if(inventory.get(i).getName().equalsIgnoreCase(itemName) && (inventory.get(i) instanceof Drink)){
+                Drink item = (Drink) inventory.get(i);
+                health = health + item.getConsumeHealth();
+                inventory.remove(item);
+                return true;
             }
         }
-        return food;
+        return false;
     }
+    public boolean eat(String itemName) {
+
+        for (int i = 0; i < inventory.size(); i++) {
+            if(inventory.get(i).getName().equalsIgnoreCase(itemName) && (inventory.get(i) instanceof Food)) {
+                Food item = (Food) inventory.get(i);
+                health = health + item.getConsumeHealth();
+                inventory.remove(item);
+                return true;
+            }
+        }
+        return false;
+    }
+
 }

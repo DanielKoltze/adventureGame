@@ -51,8 +51,7 @@ public class Room {
     }
 
     public String getName() {return name;}
-    public void addItemToRoom(String name){
-        Item item = new Item(name);
+    public void addItemToRoom(Item item){
         items.add(item);
     }
     public void addItemToRoom(String name, int consumeHealth){

@@ -44,23 +44,24 @@ public class Map {
         room8.setNorth(room5);
         room9.setNorth(room6);
         room9.setWest(room8);
-        room1.addItemToRoom("Wallet");
-        room1.addItemToRoom("Studentcard");
-        room1.addItemToRoom("Apple",5);
-        room2.addItemToRoom("Coffee", 5);
-        room2.addItemToRoom("Socks");
-        room3.addItemToRoom("Computer");
-        room3.addItemToRoom("Sanitizer", -50);
-        room4.addItemToRoom("Keys");
-        room5.addItemToRoom("Jacket");
-        room6.addItemToRoom("Paper");
-        room6.addItemToRoom("Cake", 10);
-        room7.addItemToRoom("Book");
-        room7.addItemToRoom("Laptop");
-        room8.addItemToRoom("Proteinbar", 20);
-        room8.addItemToRoom("Keychain");
-        room9.addItemToRoom("Chair");
-        room9.addItemToRoom("Beer", 10);
+
+        room1.addItemToRoom(new Item("Wallet"));
+        room1.addItemToRoom(new Item("Studentcard"));
+        room1.addItemToRoom(new Food("Apple",5));
+        room2.addItemToRoom(new Drink("Coffee", 5));
+        room2.addItemToRoom(new Item("Socks"));
+        room3.addItemToRoom(new Item("Computer"));
+        room3.addItemToRoom(new Drink("Sanitizer", -50));
+        room4.addItemToRoom(new Item("Keys"));
+        room5.addItemToRoom(new Item ("Jacket"));
+        room6.addItemToRoom(new Item("Paper"));
+        room6.addItemToRoom(new Food("Cake", 10));
+        room7.addItemToRoom(new Item("Book"));
+        room7.addItemToRoom(new Item("Laptop"));
+        room8.addItemToRoom(new Food("Proteinbar", 20));
+        room8.addItemToRoom(new Item("Keychain"));
+        room9.addItemToRoom(new Item("Chair"));
+        room9.addItemToRoom(new Drink("Beer", 10));
 
 
     }
