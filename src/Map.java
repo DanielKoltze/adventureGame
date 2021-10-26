@@ -17,7 +17,7 @@ public class Map {
     }
     public void init(){
         //Sætter vores run op og kører med metoden i konstruktør
-        room1 = new Room("Hallway", "It is morning and you have entered the hallway of the school you're attending. Many foes lies lurking around. Be careful!");
+        room1 = new Room("Hallway", "You have entered the hallway of the school you're attending. Many foes lies lurking around. Be careful!");
         room2 = new Room("Staircase", "Be careful when walking up the staircase. It is almost inevitable to meet another student.");
         room3 = new Room("Codelab", "Many students vacay the room, and getting a spot alone may prove to be difficult");
         room4 = new Room("Elevator", "Empty right now. Press the 'close door' button fast!");
