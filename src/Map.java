@@ -57,7 +57,7 @@ public class Map {
         room6.addItemToRoom("Cake", 10);
         room7.addItemToRoom("Book");
         room7.addItemToRoom("Laptop");
-        room8.addItemToRoom("Table");
+        room8.addItemToRoom("Proteinbar", 20);
         room8.addItemToRoom("Keychain");
         room9.addItemToRoom("Chair");
         room9.addItemToRoom("Beer", 10);
