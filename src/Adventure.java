@@ -107,9 +107,9 @@ public class Adventure {
     private void eatFood(String tekst) {
         boolean foodEaten = player.eat(tekst);
         if(foodEaten){
-            System.out.println("you have eaten " + tekst);
+            System.out.println("You have eaten " + tekst + " and your health is now " + player.getHealth());
         } else{
-            System.out.println("you cant eat this");
+            System.out.println("You cant eat this");
         }
     }
 

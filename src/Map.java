@@ -47,26 +47,24 @@ public class Map {
         room1.addItemToRoom("Wallet");
         room1.addItemToRoom("Studentcard");
         room1.addItemToRoom("Apple",5);
-        room2.addItemToRoom("Coffee");
+        room2.addItemToRoom("Coffee", 5);
         room2.addItemToRoom("Socks");
         room3.addItemToRoom("Computer");
-        room3.addItemToRoom("Sanitizer");
+        room3.addItemToRoom("Sanitizer", -50);
         room4.addItemToRoom("Keys");
         room5.addItemToRoom("Jacket");
         room6.addItemToRoom("Paper");
-        room6.addItemToRoom("Cake");
+        room6.addItemToRoom("Cake", 10);
         room7.addItemToRoom("Book");
         room7.addItemToRoom("Laptop");
         room8.addItemToRoom("Table");
         room8.addItemToRoom("Keychain");
         room9.addItemToRoom("Chair");
-        room9.addItemToRoom("Beer");
+        room9.addItemToRoom("Beer", 10);
 
 
     }
-
     public Room getRoom1() {
         return room1;
     }
-
 }
