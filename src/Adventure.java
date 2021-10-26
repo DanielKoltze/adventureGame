@@ -10,7 +10,7 @@ public class Adventure {
                 "greatest fear is the social contact with other people.\nYour mission is to graduate school with the least" +
                 " amount of social interaction as possible. Type 'help' if you need guidance.\n" +
                 "\nGood luck!");
-        dots();
+        dots(3);
         player.setCurrentRoom(map.getRoom1());
         System.out.println(player.getCurrentRoomDescription());
         printItemsInCurrentRoom();
@@ -161,13 +161,13 @@ public class Adventure {
             System.out.println(tekst + " doesnt exist in your inventory");
         }
     }
-    public void dots() throws InterruptedException {
-        Thread.sleep(1000);
-        System.out.println("...");
-        Thread.sleep(1000);
-        System.out.println("...");
-        Thread.sleep(1000);
-        System.out.println("...\n");
+    public void dots(int tal) throws InterruptedException {
+        for (int i = 0; i < tal; i++) {
+            Thread.sleep(1000);
+            System.out.println("...");
+        }
+        System.out.println();
+
     }
 }
 
