@@ -87,4 +87,17 @@ public class Player {
     public int getHealth() {
         return health;
     }
+
+    public void setHealth(int health) {
+        this.health = health;
+    }
+
+    public void eatFood(String tekst) {
+        for (int i = 0; i < inventory.size(); i++) {
+            if(inventory.get(i).getName().equalsIgnoreCase(tekst)){
+                Food food = (Food) inventory.get(i);
+                health = health + food.getConsumeHealth();
+            }
+        }
+    }
 }

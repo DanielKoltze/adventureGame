@@ -94,12 +94,20 @@ public class Adventure {
             } else if(tekst.equalsIgnoreCase("health")){
                 System.out.println("You currently have " + player.getHealth() + " health");
 
+            }else if(tekst.contains("eat")){
+                tekst = tekst.substring(4);
+                eatFood(tekst);
             }
             else {
                 System.out.println("You search this way, but unfortunately it goes directly into a wall. Try another way!");
                 }
             }
         }
+
+    private void eatFood(String tekst) {
+        player.eatFood(tekst);
+    }
+
     public void walking(String direction) throws InterruptedException {
         System.out.println("Leaving " + player.getCurrentRoomName() + " and walking " + direction + "...");
         Thread.sleep(1000);
