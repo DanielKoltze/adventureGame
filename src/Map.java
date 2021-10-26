@@ -46,7 +46,7 @@ public class Map {
         room9.setWest(room8);
         room1.addItemToRoom("Wallet");
         room1.addItemToRoom("Studentcard");
-        room1.addItemToRoom("Hoodie");
+        room1.addItemToRoom("Apple");
         room2.addItemToRoom("Coffee");
         room2.addItemToRoom("Socks");
         room3.addItemToRoom("Computer");
@@ -54,7 +54,7 @@ public class Map {
         room4.addItemToRoom("Keys");
         room5.addItemToRoom("Jacket");
         room6.addItemToRoom("Paper");
-        room6.addItemToRoom("STD's");
+        room6.addItemToRoom("Cake");
         room7.addItemToRoom("Book");
         room7.addItemToRoom("Laptop");
         room8.addItemToRoom("Table");

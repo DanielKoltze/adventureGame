@@ -10,12 +10,7 @@ public class Adventure {
                 "greatest fear is the social contact with other people.\nYour mission is to graduate school with the least" +
                 " amount of social interaction as possible. Type 'help' if you need guidance.\n" +
                 "\nGood luck!");
-        Thread.sleep(1000);
-        System.out.println("...");
-        Thread.sleep(1000);
-        System.out.println("...");
-        Thread.sleep(1000);
-        System.out.println("...\n");
+        dots();
         player.setCurrentRoom(map.getRoom1());
         System.out.println(player.getCurrentRoomDescription());
         printItemsInCurrentRoom();
@@ -98,7 +93,7 @@ public class Adventure {
                 dropItem(tekst);
             } else {
                 System.out.println("You search this way, but unfortunately it goes directly into a wall. Try another way!");
-              }
+                }
             }
         }
     public void walking(String direction) throws InterruptedException {
@@ -137,6 +132,14 @@ public class Adventure {
         } else{
             System.out.println(tekst + " doesnt exist in this room");
         }
+    }
+    public void dots() throws InterruptedException {
+        Thread.sleep(1000);
+        System.out.println("...");
+        Thread.sleep(1000);
+        System.out.println("...");
+        Thread.sleep(1000);
+        System.out.println("...\n");
     }
 }
 
