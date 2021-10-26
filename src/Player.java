@@ -98,6 +98,7 @@ public class Player {
 
         if(item != null) {
             health = health + item.getConsumeHealth();
+            inventory.remove(item);
             return true;
         } else {
             return false;
