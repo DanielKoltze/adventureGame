@@ -105,7 +105,12 @@ public class Adventure {
         }
 
     private void eatFood(String tekst) {
-        player.eatFood(tekst);
+        boolean foodEaten = player.eat(tekst);
+        if(foodEaten){
+            System.out.println("you have eaten " + tekst);
+        } else{
+            System.out.println("you cant eat this");
+        }
     }
 
     public void walking(String direction) throws InterruptedException {

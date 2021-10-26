@@ -92,12 +92,26 @@ public class Player {
         this.health = health;
     }
 
-    public void eatFood(String tekst) {
+    public boolean eat(String tekst){
+
+        Food item = eatFood(tekst);
+
+        if(item != null) {
+            health = health + item.getConsumeHealth();
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public Food eatFood(String tekst) {
+        Food food = null;
         for (int i = 0; i < inventory.size(); i++) {
-            if(inventory.get(i).getName().equalsIgnoreCase(tekst)){
-                Food food = (Food) inventory.get(i);
-                health = health + food.getConsumeHealth();
+            if(inventory.get(i).getName().equalsIgnoreCase(tekst) && inventory.get(i) instanceof Food) {
+                food = (Food) inventory.get(i);
+                return food;
             }
         }
+        return food;
     }
 }
