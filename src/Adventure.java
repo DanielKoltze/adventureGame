@@ -29,7 +29,7 @@ public class Adventure {
             } else if (tekst.equals("exit")) {
                 System.out.println("You have exited");
                 gameIsRunning = false;
-            }else if (tekst.equals("help")) {
+            } else if (tekst.equals("help")) {
                 System.out.println("\nTo move around type either one of these commands:\n " +
                     "\nNorth: go north/ north/ n" +
                     "\nSouth: go south/ south/ s" +
@@ -40,49 +40,48 @@ public class Adventure {
                         "\nTo drop the item again type: 'drop' + 'name of the item'" +
                         "\nType 'inventory' to see all your items");
             } else if ((tekst.equalsIgnoreCase("east")
-                    || tekst.equalsIgnoreCase("e")
-                    || tekst.equalsIgnoreCase("go east"))
-                    && player.getEastRoom() != null) {
+                || tekst.equalsIgnoreCase("e")
+                || tekst.equalsIgnoreCase("go east"))
+                && player.getEastRoom() != null) {
                 // go east
-                    walking("east");
-                    player.goEast();
-                    System.out.println("Entering " + player.getCurrentRoomName() + ". " + player.getCurrentRoomDescription());
-                    printItemsInCurrentRoom();
-                } else if ((tekst.equalsIgnoreCase("south")
-                    || tekst.equalsIgnoreCase("s")
-                    || tekst.equalsIgnoreCase("go south"))
-                    && player.getSouthRoom() != null) {
+                walking("east");
+                player.goEast();
+                System.out.println("Entering " + player.getCurrentRoomName() + ". " + player.getCurrentRoomDescription());
+                printItemsInCurrentRoom();
+            } else if ((tekst.equalsIgnoreCase("south")
+                || tekst.equalsIgnoreCase("s")
+                || tekst.equalsIgnoreCase("go south"))
+                && player.getSouthRoom() != null) {
                 // go south
-                    walking("south");
-                    player.goSouth();
-                    System.out.println("Entering " + player.getCurrentRoomName() + ". " + player.getCurrentRoomDescription());
-                    printItemsInCurrentRoom();
-                } else if ((tekst.equalsIgnoreCase("west")
-                    || tekst.equalsIgnoreCase("w")
-                    || tekst.equalsIgnoreCase("go west"))
-                    && player.getWestRoom() != null) {
+                walking("south");
+                player.goSouth();
+                System.out.println("Entering " + player.getCurrentRoomName() + ". " + player.getCurrentRoomDescription());
+                printItemsInCurrentRoom();
+            } else if ((tekst.equalsIgnoreCase("west")
+                || tekst.equalsIgnoreCase("w")
+                || tekst.equalsIgnoreCase("go west"))
+                && player.getWestRoom() != null) {
                 // go west
-                    walking("west");
-                    player.goWest();
-                    System.out.println("Entering " + player.getCurrentRoomName() + ". " + player.getCurrentRoomDescription());
-                    printItemsInCurrentRoom();
-
+                walking("west");
+                player.goWest();
+                System.out.println("Entering " + player.getCurrentRoomName() + ". " + player.getCurrentRoomDescription());
+                printItemsInCurrentRoom();
              } else if ((tekst.equalsIgnoreCase("north")
-                    || tekst.equalsIgnoreCase("n")
-                    || tekst.equalsIgnoreCase("go north"))
-                    && player.getNorthRoom() != null) {
+                || tekst.equalsIgnoreCase("n")
+                || tekst.equalsIgnoreCase("go north"))
+                && player.getNorthRoom() != null) {
                 // go north
-                    walking("north");
-                    player.goNorth();
-                    System.out.println("Entering " + player.getCurrentRoomName() + ". " + player.getCurrentRoomDescription());
-                    printItemsInCurrentRoom();
-            }else if(tekst.contains("take")){
+                walking("north");
+                player.goNorth();
+                System.out.println("Entering " + player.getCurrentRoomName() + ". " + player.getCurrentRoomDescription());
+                printItemsInCurrentRoom();
+            } else if(tekst.contains("take")){
                 tekst = tekst.substring(5);
                 takeItem(tekst);
-            }else if(tekst.equals("inventory")){
-                  if(player.getInventory().size() == 0){
-                      System.out.println("You have nothing in your inventory");
-                  }else {
+            } else if(tekst.equals("inventory")){
+                if(player.getInventory().size() == 0){
+                    System.out.println("You have nothing in your inventory");
+                  } else {
                       System.out.print("Your inventory: ");
                       for (int i = 0; i < player.getInventory().size(); i++) {
                           System.out.print(player.getInventory().get(i));
@@ -94,22 +93,18 @@ public class Adventure {
                       }
                       System.out.println();
                   }
-
-            }else if(tekst.contains("drop")){
+            } else if(tekst.contains("drop")){
                 tekst = tekst.substring(5);
                 dropItem(tekst);
-            }
-              else{
+            } else {
                 System.out.println("You search this way, but unfortunately it goes directly into a wall. Try another way!");
-            }
+              }
             }
         }
-
     public void walking(String direction) throws InterruptedException {
         System.out.println("Leaving " + player.getCurrentRoomName() + " and walking " + direction + "...");
         Thread.sleep(1000);
     }
-
     //kan gøres pænere
     public void printItemsInCurrentRoom() {
         if (player.getCurrentRoomItemSize() == 0) {
@@ -143,6 +138,6 @@ public class Adventure {
             System.out.println(tekst + " doesnt exist in this room");
         }
     }
-    }
+}
 
 
