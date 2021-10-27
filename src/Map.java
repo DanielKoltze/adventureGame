@@ -51,8 +51,10 @@ public class Map {
         room2.addItemToRoom(new Drink("Coffee", 5));
         room2.addItemToRoom(new Item("Socks"));
         room2.addItemToRoom(new Weapon("Axe",10));
+        room2.addItemToRoom(new Item("Football"));
         room3.addItemToRoom(new Item("Computer"));
         room3.addItemToRoom(new Drink("Sanitizer", -50));
+        room3.addItemToRoom(new Weapon("Flask", 14));
         room4.addItemToRoom(new Item("Studentcard"));
         room4.addItemToRoom(new Item("Keys"));
         room5.addItemToRoom(new Item ("Jacket"));
@@ -62,8 +64,9 @@ public class Map {
         room7.addItemToRoom(new Item("Laptop"));
         room8.addItemToRoom(new Food("Proteinbar", 20));
         room8.addItemToRoom(new Item("Keychain"));
-        room9.addItemToRoom(new Item("Chair"));
+        room9.addItemToRoom(new Weapon("Chair",3));
         room9.addItemToRoom(new Drink("Beer", 10));
+        room9.addItemToRoom(new Weapon("Slingshot", 7));
 
 
     }

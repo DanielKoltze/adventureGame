@@ -54,10 +54,6 @@ public class Room {
     public void addItemToRoom(Item item){
         items.add(item);
     }
-    public void addItemToRoom(String name, int consumeHealth){
-        Food item = new Food(name, consumeHealth);
-        items.add(item);
-    }
 
     public ArrayList<Item> getItems() {
         return items;
