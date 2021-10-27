@@ -4,7 +4,11 @@ public class Player {
     private Room currentRoom;
     private ArrayList<Item> inventory = new ArrayList<>();
     private int health = 100;
+    private Weapon weapon = null;
 
+    public Weapon getWeapon() {
+        return weapon;
+    }
 
     public void setCurrentRoom(Room currentRoom) {
         this.currentRoom = currentRoom;
@@ -145,6 +149,26 @@ public class Player {
             return false;
         }
 
+    }
+    public boolean equip(String itemName){
+        Weapon item;
+        for (int i = 0; i < inventory.size(); i++) {
+        if (inventory.get(i).getName().equalsIgnoreCase(itemName) && (inventory.get(i) instanceof Weapon)) {
+            if(weapon == null){
+                item = (Weapon) inventory.get(i);
+                weapon = item;
+                inventory.remove(item);
+                return true;
+            }else{
+                item = (Weapon) inventory.get(i);
+                inventory.add(weapon);
+                weapon = item;
+                inventory.remove(item);
+                return true;
+            }
+        }
+    }
+        return false;
     }
 }
 

@@ -88,24 +88,38 @@ public class Adventure {
                       }
                       System.out.println();
                   }
+                if(player.getWeapon() != null){
+                    System.out.println("You have a " + player.getWeapon().getName() + " equipped");
+                }
             } else if(tekst.contains("drop ")){
                 tekst = tekst.substring(5);
                 dropItem(tekst);
             } else if(tekst.equalsIgnoreCase("health")){
                 System.out.println("You currently have " + player.getHealth() + " health");
-
             }else if(tekst.contains("eat ")){
                 tekst = tekst.substring(4);
                 eat(tekst);
             }else if(tekst.contains("drink ")){
                 tekst = tekst.substring(6);
                 drink(tekst);
+            }else if(tekst.contains("equip ")){
+                tekst = tekst.substring(6);
+                eqiup(tekst);
             }
             else {
                 System.out.println("You search this way, but unfortunately it goes directly into a wall. Try another way!");
                 }
             }
         }
+
+    private void eqiup(String itemName) {
+        boolean cases = player.equip(itemName);
+        if(cases){
+            System.out.println("You have equiped the " + itemName);
+        }else{
+            System.out.println("You do not have a " + itemName + " in your inventory");
+        }
+    }
 
     private void eat(String itemName) {
         boolean cases = player.eat(itemName);
@@ -148,7 +162,7 @@ public class Adventure {
     public void takeItem(String tekst){
         boolean itemTaken = player.takeItem(tekst);
         if (itemTaken){
-            System.out.println("You have picked up " + tekst + " from the ground.");
+            System.out.println("You have picked up the " + tekst + " from the ground.");
         } else{
             System.out.println(tekst + " doesnt exist in this room");
         }

@@ -46,12 +46,14 @@ public class Map {
         room9.setWest(room8);
 
         room1.addItemToRoom(new Item("Wallet"));
-        room1.addItemToRoom(new Item("Studentcard"));
         room1.addItemToRoom(new Food("Apple",5));
+        room1.addItemToRoom(new Weapon("Sword",5));
         room2.addItemToRoom(new Drink("Coffee", 5));
         room2.addItemToRoom(new Item("Socks"));
+        room2.addItemToRoom(new Weapon("Axe",10));
         room3.addItemToRoom(new Item("Computer"));
         room3.addItemToRoom(new Drink("Sanitizer", -50));
+        room4.addItemToRoom(new Item("Studentcard"));
         room4.addItemToRoom(new Item("Keys"));
         room5.addItemToRoom(new Item ("Jacket"));
         room6.addItemToRoom(new Item("Paper"));
