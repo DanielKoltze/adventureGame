@@ -118,15 +118,13 @@ public class Player {
                 return true;
             }
         }
-        for (int i = 0; i < currentRoom.getItems().size(); i++) {
-            if (currentRoom.getItems().get(i).getName().equalsIgnoreCase(itemName) && (currentRoom.getItems().get(i) instanceof Drink)) {
-                item = (Drink) currentRoom.getItems().get(i);
-                health = health + item.getConsumeHealth();
-                currentRoom.getItems().remove(item);
-                return true;
-            }
+        item = currentRoom.checkDrink(itemName);
+        if (item != null) {
+            health = health + item.getConsumeHealth();
+            return true;
+        } else {
+            return false;
         }
-        return false;
     }
 
     public boolean eat(String itemName) {
@@ -139,17 +137,14 @@ public class Player {
                 return true;
             }
         }
-            for (int i = 0; i < currentRoom.getItems().size(); i++) {
-                if (currentRoom.getItems().get(i).getName().equalsIgnoreCase(itemName) && (currentRoom.getItems().get(i) instanceof Food)) {
-                    item = (Food) currentRoom.getItems().get(i);
-                    health = health + item.getConsumeHealth();
-                    currentRoom.getItems().remove(item);
-                    return true;
-                }
-            }
+        item = currentRoom.checkEat(itemName);
+        if (item != null) {
+            health = health + item.getConsumeHealth();
+            return true;
+        } else {
             return false;
         }
 
     }
-
+}
 

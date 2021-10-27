@@ -88,5 +88,27 @@ public class Room {
         }
         return item;
     }
+    public Food checkEat(String itemName){
+        Food item = null;
+        for (int i = 0; i < items.size(); i++) {
+            if (items.get(i).getName().equalsIgnoreCase(itemName) && (items.get(i) instanceof Food)) {
+                item = (Food) items.get(i);
+                items.remove(item);
+                return item;
+            }
+        }
+        return item;
+    }
 
+    public Drink checkDrink(String itemName){
+        Drink item = null;
+        for (int i = 0; i < items.size(); i++) {
+            if (items.get(i).getName().equalsIgnoreCase(itemName) && (items.get(i) instanceof Drink)) {
+                item = (Drink) items.get(i);
+                items.remove(item);
+                return item;
+            }
+        }
+        return item;
+    }
 }
