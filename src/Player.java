@@ -9,50 +9,63 @@ public class Player {
     public void setCurrentRoom(Room currentRoom) {
         this.currentRoom = currentRoom;
     }
-    public String getCurrentRoomItemList(int tal){
+
+    public String getCurrentRoomItemList(int tal) {
         return currentRoom.getItemByIndex(tal);
-  }
+    }
+
     public ArrayList<Item> getInventory() {
         return inventory;
     }
-    public int getCurrentRoomItemSize(){
+
+    public int getCurrentRoomItemSize() {
         return currentRoom.getItemSize();
     }
-    public String getCurrentRoomDescription(){
+
+    public String getCurrentRoomDescription() {
         return currentRoom.getDescription();
     }
-    public void goEast(){
+
+    public void goEast() {
         currentRoom = currentRoom.getEast();
     }
-    public void goSouth(){
+
+    public void goSouth() {
         currentRoom = currentRoom.getSouth();
     }
-    public void goNorth(){
+
+    public void goNorth() {
         currentRoom = currentRoom.getNorth();
     }
-    public void goWest(){
+
+    public void goWest() {
         currentRoom = currentRoom.getWest();
     }
-    public String getCurrentRoomName(){
+
+    public String getCurrentRoomName() {
         return currentRoom.getName();
     }
-    public Room getSouthRoom(){
+
+    public Room getSouthRoom() {
         return currentRoom.getSouth();
     }
-    public Room getNorthRoom(){
+
+    public Room getNorthRoom() {
         return currentRoom.getNorth();
     }
-    public Room getWestRoom(){
+
+    public Room getWestRoom() {
         return currentRoom.getWest();
     }
-    public Room getEastRoom(){
+
+    public Room getEastRoom() {
         return currentRoom.getEast();
     }
 
 
-    public boolean takeItem(String itemName){
+    public boolean takeItem(String itemName) {
         Item item = currentRoom.findItem(itemName);
-        if(item != null) {
+        if (item != null) {
             inventory.add(item);
             currentRoom.removeItem(item);
             return true;
@@ -65,7 +78,7 @@ public class Player {
         Item item = findItem(itemName);
 
         // if exists:
-        if(item != null) {
+        if (item != null) {
             //  - remove from room
             currentRoom.addItem(item);
             //  - add to inventory
@@ -75,9 +88,10 @@ public class Player {
             return false;
         }
     }
+
     public Item findItem(String itemName) {
         for (int i = 0; i < inventory.size(); i++) {
-            if(inventory.get(i).getName().equalsIgnoreCase(itemName)){
+            if (inventory.get(i).getName().equalsIgnoreCase(itemName)) {
                 return inventory.get(i);
             }
         }
@@ -94,28 +108,48 @@ public class Player {
 
 
     public boolean drink(String itemName) {
-
+        Drink item;
         for (int i = 0; i < inventory.size(); i++) {
-            if(inventory.get(i).getName().equalsIgnoreCase(itemName) && (inventory.get(i) instanceof Drink)){
-                Drink item = (Drink) inventory.get(i);
+            //tjekker først inventory og ellers tjekker den room klassen og der skulle være en food
+            if (inventory.get(i).getName().equalsIgnoreCase(itemName) && (inventory.get(i) instanceof Drink)) {
+                item = (Drink) inventory.get(i);
                 health = health + item.getConsumeHealth();
                 inventory.remove(item);
                 return true;
             }
         }
+        for (int i = 0; i < currentRoom.getItems().size(); i++) {
+            if (currentRoom.getItems().get(i).getName().equalsIgnoreCase(itemName) && (currentRoom.getItems().get(i) instanceof Drink)) {
+                item = (Drink) currentRoom.getItems().get(i);
+                health = health + item.getConsumeHealth();
+                currentRoom.getItems().remove(item);
+                return true;
+            }
+        }
         return false;
     }
+
     public boolean eat(String itemName) {
-
+        Food item;
         for (int i = 0; i < inventory.size(); i++) {
-            if(inventory.get(i).getName().equalsIgnoreCase(itemName) && (inventory.get(i) instanceof Food)) {
-                Food item = (Food) inventory.get(i);
+            if (inventory.get(i).getName().equalsIgnoreCase(itemName) && (inventory.get(i) instanceof Food)) {
+                item = (Food) inventory.get(i);
                 health = health + item.getConsumeHealth();
                 inventory.remove(item);
                 return true;
             }
         }
-        return false;
+            for (int i = 0; i < currentRoom.getItems().size(); i++) {
+                if (currentRoom.getItems().get(i).getName().equalsIgnoreCase(itemName) && (currentRoom.getItems().get(i) instanceof Food)) {
+                    item = (Food) currentRoom.getItems().get(i);
+                    health = health + item.getConsumeHealth();
+                    currentRoom.getItems().remove(item);
+                    return true;
+                }
+            }
+            return false;
+        }
+
     }
 
-}
+
