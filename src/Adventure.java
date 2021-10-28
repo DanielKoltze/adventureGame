@@ -1,5 +1,7 @@
 import java.util.Scanner;
 //måske adgang til et rum via studentcard
+// man skal ikke kunne gå forbi enemy når den er i rum 2 så gå til rum 3
+//Mangler stadig ammo
 
 public class Adventure {
     private Map map = new Map();

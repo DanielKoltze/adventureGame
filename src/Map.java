@@ -54,6 +54,7 @@ public class Map {
         room2.addItemToRoom(new Item("Football"));
         room3.addItemToRoom(new Item("Computer"));
         room3.addItemToRoom(new Drink("Sanitizer", -50));
+        room3.addEnemyToRoom(new Enemy("Spider", "a giant poisonous spider",20,new MeleeWeapon("Fangs", 9)));
         room3.addItemToRoom(new ShootingWeapon("Flask", 14,1));
         room4.addEnemyToRoom(new Enemy("Wizard","a magical wizard",18,new ShootingWeapon("Staff",6,6)));
         room4.addItemToRoom(new Item("Studentcard"));
