@@ -197,6 +197,10 @@ public class Player {
         return currentRoom.checkEnemyInRoom();
     }
 
+    public Room getCurrentRoom() {
+        return currentRoom;
+    }
+
     public int getEnemyHealth() {
         return currentRoom.getEnemyHealth();
     }

@@ -35,6 +35,10 @@ public class Room {
         return description;
     }
 
+    public void setEnemy(Enemy enemy) {
+        this.enemy = enemy;
+    }
+
     public void setEast(Room east) {
         this.east = east;
     }
