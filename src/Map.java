@@ -47,14 +47,15 @@ public class Map {
 
         room1.addItemToRoom(new Item("Wallet"));
         room1.addItemToRoom(new Food("Apple",5));
-        room1.addItemToRoom(new Weapon("Sword",5));
+        room1.addItemToRoom(new MeleeWeapon("Sword",5));
         room2.addItemToRoom(new Drink("Coffee", 5));
         room2.addItemToRoom(new Item("Socks"));
-        room2.addItemToRoom(new Weapon("Axe",10));
+        room2.addItemToRoom(new MeleeWeapon("Axe",10));
         room2.addItemToRoom(new Item("Football"));
         room3.addItemToRoom(new Item("Computer"));
         room3.addItemToRoom(new Drink("Sanitizer", -50));
-        room3.addItemToRoom(new Weapon("Flask", 14));
+        room3.addItemToRoom(new ShootingWeapon("Flask", 14,1));
+        room4.addEnemyToRoom(new Enemy("Wizard","a magical wizard",18,new ShootingWeapon("Staff",6,6)));
         room4.addItemToRoom(new Item("Studentcard"));
         room4.addItemToRoom(new Item("Keys"));
         room5.addItemToRoom(new Item ("Jacket"));
@@ -62,11 +63,12 @@ public class Map {
         room6.addItemToRoom(new Food("Cake", 10));
         room7.addItemToRoom(new Item("Book"));
         room7.addItemToRoom(new Item("Laptop"));
+        room7.addItemToRoom(new Item("Chest"));
         room8.addItemToRoom(new Food("Proteinbar", 20));
         room8.addItemToRoom(new Item("Keychain"));
-        room9.addItemToRoom(new Weapon("Chair",3));
+        room9.addItemToRoom(new MeleeWeapon("Chair",3));
         room9.addItemToRoom(new Drink("Beer", 10));
-        room9.addItemToRoom(new Weapon("Slingshot", 7));
+        room9.addItemToRoom(new ShootingWeapon("Slingshot", 7,5));
 
 
     }

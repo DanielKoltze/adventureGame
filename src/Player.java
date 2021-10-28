@@ -4,7 +4,8 @@ public class Player {
     private Room currentRoom;
     private ArrayList<Item> inventory = new ArrayList<>();
     private int health = 100;
-    private Weapon weapon = null;
+    private Weapon weapon = new MeleeWeapon("Hands",2) {
+    };
 
     public Weapon getWeapon() {
         return weapon;
@@ -154,7 +155,7 @@ public class Player {
         Weapon item;
         for (int i = 0; i < inventory.size(); i++) {
         if (inventory.get(i).getName().equalsIgnoreCase(itemName) && (inventory.get(i) instanceof Weapon)) {
-            if(weapon == null){
+            if(weapon.getName().equalsIgnoreCase("hands")){
                 item = (Weapon) inventory.get(i);
                 weapon = item;
                 inventory.remove(item);
@@ -169,6 +170,44 @@ public class Player {
         }
     }
         return false;
+    }
+
+    public boolean openChest() {
+        Item keys = findItem("Keys");
+        Item chest = findItem("Chest");
+        if(keys != null && chest != null ){
+            inventory.remove(chest);
+            inventory.remove(keys);
+            inventory.add(new Food("Lasagne", 100));
+            inventory.add(new ShootingWeapon("Gun", 60,3));
+            return true;
+        }
+        return false;
+    }
+
+    public Boolean checkWeapon() {
+        if(weapon.getName().equalsIgnoreCase("hands")){
+            return false;
+        }else{
+            return true;
+        }
+    }
+
+    public boolean checkEnemy() {
+        return currentRoom.checkEnemyInRoom();
+    }
+
+    public int getEnemyHealth() {
+        return currentRoom.getEnemyHealth();
+    }
+
+    public void attack() {
+        currentRoom.getEnemy().setHealth(getEnemyHealth() - weapon.getDamage());
+        //ammo hvis skydevåben
+    }
+
+    public Enemy getEnemy() {
+        return currentRoom.getEnemy();
     }
 }
 

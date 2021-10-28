@@ -8,6 +8,7 @@ public class Room {
     private String description;
     private String name;
     private ArrayList<Item> items = new ArrayList<>();
+    Enemy enemy = null;
 
     public Room(String name, String description){
         this.description = description;
@@ -106,5 +107,32 @@ public class Room {
             }
         }
         return item;
+    }
+
+    public void addEnemyToRoom(Enemy enemy) {
+        this.enemy = enemy;
+    }
+    public boolean checkEnemyInRoom() {
+        if(enemy == null){
+            return false;
+        }else{
+            return true;
+        }
+    }
+
+    public String getEnemyDescription() {
+        return enemy.getDescription();
+    }
+
+    public String getEnemyName() {
+        return enemy.getName();
+    }
+
+    public int getEnemyHealth() {
+        return enemy.getHealth();
+    }
+
+    public Enemy getEnemy() {
+        return enemy;
     }
 }

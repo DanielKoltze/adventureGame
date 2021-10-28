@@ -1,8 +1,10 @@
 import java.util.Scanner;
+//måske adgang til et rum via studentcard
 
 public class Adventure {
     private Map map = new Map();
     private Player player = new Player();
+    private Enemy enemy = null;
     public void run() throws InterruptedException {
         boolean gameIsRunning = true;
         Scanner sc = new Scanner(System.in);
@@ -51,7 +53,35 @@ public class Adventure {
                 walking("south");
                 player.goSouth();
                 System.out.println("Entering " + player.getCurrentRoomName() + ". " + player.getCurrentRoomDescription());
-                printItemsInCurrentRoom();
+                if(player.checkEnemy()){
+                    enemy = player.getEnemy();
+                    Thread.sleep(1000);
+                    System.out.println("You have encountered " + enemy.getDescription() + "!!!");
+                    Thread.sleep(1000);
+                    System.out.println("You have to kill the " + enemy.getName() + " fast");
+                    Thread.sleep(1000);
+                    System.out.println("Type help for commands");
+                    while(player.getHealth() >= 0 && enemy.getHealth() >= 0){
+                        enemy.setPlayer(player);
+                        tekst = sc.nextLine();
+                        if(tekst.equalsIgnoreCase("status")){
+                            status();
+                        } else if(tekst.equalsIgnoreCase("help")){
+                            helpEncounter();
+                        }else if(tekst.equalsIgnoreCase("attack")){
+                            attackEnemy();
+                            Thread.sleep(1000);
+                            enemyAttack();
+                        }else if(tekst.equalsIgnoreCase("auto attack")){
+                            autoAttack();
+                            break;
+                        }else{
+                            System.out.println("This is not a command");
+                        }
+                    }
+                    //lave if else hvis mna  dør eller enemy dør
+                }else{
+                printItemsInCurrentRoom();}
             } else if ((tekst.equalsIgnoreCase("west")
                 || tekst.equalsIgnoreCase("w")
                 || tekst.equalsIgnoreCase("go west"))
@@ -88,8 +118,10 @@ public class Adventure {
                       }
                       System.out.println();
                   }
-                if(player.getWeapon() != null){
+                if(player.checkWeapon()){
                     System.out.println("You have a " + player.getWeapon().getName() + " equipped");
+                }else{
+                    System.out.println("You have no weapon equipped however you can still use your bare hands");
                 }
             } else if(tekst.contains("drop ")){
                 tekst = tekst.substring(5);
@@ -105,12 +137,57 @@ public class Adventure {
             }else if(tekst.contains("equip ")){
                 tekst = tekst.substring(6);
                 eqiup(tekst);
+                //man kan open chest hvis man har keys. så får man to gode items
+            }else if(tekst.contains("open ")){
+                tekst = tekst.substring(5);
+                openChest(tekst);
             }
             else {
                 System.out.println("You search this way, but unfortunately it goes directly into a wall. Try another way!");
                 }
             }
         }
+
+    private void autoAttack() {
+        while(player.getHealth() > 0 && enemy.getHealth() > 0){
+            attackEnemy();
+            enemyAttack();
+        }
+    }
+
+    private void status() {
+        System.out.println("you have " + player.getWeapon().getDamage() + " damage and " + player.getHealth() + " health");
+        System.out.println("Enemy has " + enemy.getWeapon().getDamage() + " damage and " + enemy.getHealth() + " health");
+    }
+
+    private void enemyAttack() {
+        enemy.attack();
+        System.out.println("Enemy hit you for " + enemy.getWeapon().getDamage() + ". You have " + player.getHealth() + " health");
+    }
+
+    private void attackEnemy() {
+        player.attack();
+        System.out.println("You hit enemy for " + player.getWeapon().getDamage() + ". enemy has " + enemy.getHealth() + " health");
+    }
+
+    private void helpEncounter() {
+        System.out.println("Attack - Attack enemy \n" +
+                "status - your health and damage + enemy health and damage \n" +
+                "Auto attack - you will attack until you or the enemy dies");
+    }
+    private void openChest(String tekst) {
+        if(tekst.equalsIgnoreCase("Chest")){
+            boolean canOpen = player.openChest();
+            if(canOpen){
+                System.out.println("You have successfully opened the chest!!!! \n" +
+                        "Check your inventory to see what you have gotten");
+            } else{
+                System.out.println("You do not have a chest in your inventory");
+            }
+        } else{
+            System.out.println("You cant open " + tekst);
+        }
+    }
 
     private void eqiup(String itemName) {
         boolean cases = player.equip(itemName);
