@@ -3,7 +3,7 @@ public class Enemy {
     private String description;
     private Weapon weapon;
     private int health;
-    private Player player;
+    private Player player = new Player();
     Enemy(String name, String description, int health, Weapon weapon){
         this.name = name;
         this.description = description;

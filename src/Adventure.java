@@ -1,7 +1,8 @@
 import java.util.Scanner;
 //måske adgang til et rum via studentcard
-// man skal ikke kunne gå forbi enemy når den er i rum 2 så gå til rum 3
+//man skal ikke kunne gå forbi enemy når den er i rum 2 så gå til rum 3
 //Mangler stadig ammo
+//enemy skal droppe våben
 
 public class Adventure {
     private Map map = new Map();
@@ -138,12 +139,12 @@ public class Adventure {
                 System.out.println("You search this way, but unfortunately it goes directly into a wall. Try another way!");
             }
             if (enemy != null) {
+                //enemyAttack();
                 if (enemy.getHealth() < 1) {
                     System.out.println("You have succesfully killed the enemy! Now u can loot the room");
                     player.getCurrentRoom().setEnemy(null);
                     enemy = null;
                     printItemsInCurrentRoom();
-
                 }
                 if (player.getHealth() < 1) {
                     System.out.println("You died from your injuries");

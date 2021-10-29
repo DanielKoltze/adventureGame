@@ -124,14 +124,6 @@ public class Room {
         }
     }
 
-    public String getEnemyDescription() {
-        return enemy.getDescription();
-    }
-
-    public String getEnemyName() {
-        return enemy.getName();
-    }
-
     public int getEnemyHealth() {
         return enemy.getHealth();
     }
