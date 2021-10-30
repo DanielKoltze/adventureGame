@@ -100,6 +100,10 @@ public class Room {
         }
         return item;
     }
+    public void dropEnemyItem(){
+        Weapon weapon = enemy.getWeapon();
+        items.add(weapon);
+    }
 
     public Drink checkDrink(String itemName){
         Drink item = null;

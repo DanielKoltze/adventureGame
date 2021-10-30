@@ -1,9 +1,6 @@
 import java.util.Scanner;
-//måske adgang til et rum via studentcard
-//man skal ikke kunne gå forbi enemy når den er i rum 2 så gå til rum 3
 //Mangler stadig ammo
-//enemy skal droppe våben
-
+//kode er blevet spaghetti efter enemy er added
 public class Adventure {
     private Map map = new Map();
     private Player player = new Player();
@@ -142,6 +139,7 @@ public class Adventure {
                 //enemyAttack();
                 if (enemy.getHealth() < 1) {
                     System.out.println("You have succesfully killed the enemy! Now u can loot the room");
+                    player.getCurrentRoom().dropEnemyItem();
                     player.getCurrentRoom().setEnemy(null);
                     enemy = null;
                     printItemsInCurrentRoom();

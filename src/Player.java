@@ -4,7 +4,7 @@ public class Player {
     private Room currentRoom;
     private ArrayList<Item> inventory = new ArrayList<>();
     private int health = 100;
-    private Weapon weapon = new MeleeWeapon("Hands",2) {
+    private Weapon weapon = new MeleeWeapon("Hands",1) {
     };
 
     public Weapon getWeapon() {
@@ -179,7 +179,7 @@ public class Player {
             inventory.remove(chest);
             inventory.remove(keys);
             inventory.add(new Food("Lasagne", 100));
-            inventory.add(new ShootingWeapon("Gun", 60,3));
+            inventory.add(new ShootingWeapon("Gun", 60,6));
             return true;
         }
         return false;
