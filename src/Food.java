@@ -1,5 +1,5 @@
 public class Food extends Item{
-    private int consumeHealth;
+    private final int consumeHealth;
 
     Food(String name, int consumeHealth) {
         super(name);

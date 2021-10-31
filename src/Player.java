@@ -4,8 +4,7 @@ public class Player {
     private Room currentRoom;
     private ArrayList<Item> inventory = new ArrayList<>();
     private int health = 100;
-    private Weapon weapon = new MeleeWeapon("Hands",1) {
-    };
+    private Weapon weapon = new MeleeWeapon("Hands",1);
 
     public Weapon getWeapon() {
         return weapon;
@@ -95,9 +94,9 @@ public class Player {
     }
 
     public Item findItem(String itemName) {
-        for (int i = 0; i < inventory.size(); i++) {
-            if (inventory.get(i).getName().equalsIgnoreCase(itemName)) {
-                return inventory.get(i);
+        for (Item item : inventory) {
+            if (item.getName().equalsIgnoreCase(itemName)) {
+                return item;
             }
         }
         return null;
@@ -179,7 +178,7 @@ public class Player {
             inventory.remove(chest);
             inventory.remove(keys);
             inventory.add(new Food("Lasagne", 100));
-            inventory.add(new ShootingWeapon("Gun", 60,6));
+            inventory.add(new ShootingWeapon("Gun", 25,10));
             return true;
         }
         return false;
@@ -207,7 +206,6 @@ public class Player {
 
     public void attack() {
         currentRoom.getEnemy().setHealth(getEnemyHealth() - weapon.getDamage());
-        //ammo hvis skydevåben
     }
 
     public Enemy getEnemy() {

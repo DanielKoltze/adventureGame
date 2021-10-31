@@ -1,5 +1,5 @@
 public class ShootingWeapon extends Weapon{
-    int ammo;
+    private int ammo;
     ShootingWeapon(String name, int damage, int ammo) {
         super(name, damage);
         this.ammo = ammo;
@@ -17,7 +17,5 @@ public class ShootingWeapon extends Weapon{
         ammo--;
     }
 
-    public int getAmmo() {
-        return ammo;
-    }
+
 }

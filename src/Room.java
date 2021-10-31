@@ -5,10 +5,10 @@ public class Room {
     private Room west = null;
     private Room south = null;
     private Room north = null;
-    private String description;
-    private String name;
+    private final String description;
+    private final String name;
     private ArrayList<Item> items = new ArrayList<>();
-    Enemy enemy = null;
+    private Enemy enemy = null;
 
     public Room(String name, String description){
         this.description = description;
@@ -60,9 +60,6 @@ public class Room {
         items.add(item);
     }
 
-    public ArrayList<Item> getItems() {
-        return items;
-    }
     public int getItemSize(){
         return items.size();
     }

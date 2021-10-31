@@ -1,6 +1,6 @@
 public class Item {
 
-  private String name;
+  private final String name;
 
   Item(String name) {
     this.name = name;

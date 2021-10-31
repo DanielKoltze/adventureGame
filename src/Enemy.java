@@ -1,7 +1,7 @@
 public class Enemy {
-    private String name;
-    private String description;
-    private Weapon weapon;
+    private final String name;
+    private final String description;
+    private final Weapon weapon;
     private int health;
     private Player player = new Player();
     Enemy(String name, String description, int health, Weapon weapon){
@@ -14,10 +14,6 @@ public class Enemy {
 
     public String getDescription() {
         return description;
-    }
-
-    public String getName() {
-        return name;
     }
 
     public int getHealth() {
