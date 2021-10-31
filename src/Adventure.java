@@ -191,8 +191,14 @@ public class Adventure {
 
 
     private void attackEnemy() {
-        player.attack();
-        System.out.println("You hit enemy for " + player.getWeapon().getDamage() + ". enemy has " + enemy.getHealth() + " health");
+        boolean usesLeft = player.getWeapon().usesLeft();
+        if(usesLeft){
+            player.attack();
+            System.out.println("You hit enemy for " + player.getWeapon().getDamage() + ". enemy has " + enemy.getHealth() + " health");
+        }else{
+            System.out.println("Your "+ player.getWeapon().getName() + " is out of ammo :(. Equip a new weapon");
+        }
+
     }
 
     private void openChest(String tekst) {
